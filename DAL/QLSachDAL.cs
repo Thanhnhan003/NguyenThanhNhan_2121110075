@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NguyenThanhNhan_2121110075.DAL
 {
-    class QLSachDAL
+    public class QLSachDAL
     {
         private saleEntities _context;
 
@@ -15,19 +15,43 @@ namespace NguyenThanhNhan_2121110075.DAL
             _context = new saleEntities();
         }
 
-        public bool AddSach(QLSach sach)
+        public List<QLSach> ReadQuanLySach()
         {
-            try
+            return _context.QLSaches.ToList();
+        }
+
+        public void AddSach(QLSach qls)
+        {
+            _context.QLSaches.Add(qls);
+            _context.SaveChanges();
+        }
+        public bool IsTenSachExists(string tenSach)
+        {
+            return _context.QLSaches.Any(s => s.TenSach == tenSach);
+        }
+        public void RemoveSach(QLSach qls)
+        {
+            _context.QLSaches.Remove(qls);
+            _context.SaveChanges();
+        }
+        public QLSach GetQuanLySachByMaSach(string maSach)
+        {
+            return _context.QLSaches.FirstOrDefault(s => s.MaSach == maSach);
+        }
+        public void UpdateSach(QLSach qls)
+        {
+            QLSach existingSach = _context.QLSaches.Find(qls.MaSach);
+            if (existingSach != null)
             {
-                _context.QLSach.Add(sach);
+                existingSach.TenSach = qls.TenSach;
+                existingSach.TenTacGia = qls.TenTacGia;
+                existingSach.NamXuatBan = qls.NamXuatBan;
+                existingSach.SoLuong = qls.SoLuong;
+                existingSach.TheLoai = qls.TheLoai;
                 _context.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
             }
         }
-        // Thêm các phương thức xử lý khác liên quan đến sách ở đây
+
+
     }
 }

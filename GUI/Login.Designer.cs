@@ -35,7 +35,6 @@ namespace NguyenThanhNhan_2121110075
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnDangKy = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbPassword = new System.Windows.Forms.Label();
@@ -118,7 +117,7 @@ namespace NguyenThanhNhan_2121110075
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(158, 28);
             this.label2.TabIndex = 42;
-            this.label2.Text = "Quên mật khẩu";   
+            this.label2.Text = "Quên mật khẩu";
             // 
             // button1
             // 
@@ -195,7 +194,6 @@ namespace NguyenThanhNhan_2121110075
             this.Controls.Add(this.txtUSER);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbUserName);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
@@ -213,7 +211,6 @@ namespace NguyenThanhNhan_2121110075
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtPASS;
         private System.Windows.Forms.TextBox txtUSER;
         private System.Windows.Forms.Label lbPassword;

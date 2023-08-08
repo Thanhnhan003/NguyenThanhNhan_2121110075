@@ -5,16 +5,26 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="saleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="QLDocGia">
+        <EntityType Name="DocGia">
           <Key>
-            <PropertyRef Name="MaDocGia" />
+            <PropertyRef Name="SoThe" />
           </Key>
-          <Property Name="MaDocGia" Type="int" Nullable="false" />
-          <Property Name="TenDocGia" Type="nvarchar" MaxLength="100" />
-          <Property Name="NgaySinh" Type="nvarchar" MaxLength="1" />
-          <Property Name="MSSV" Type="nvarchar" MaxLength="20" />
-          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" />
-          <Property Name="NgayHetHan" Type="nvarchar" MaxLength="1" />
+          <Property Name="SoThe" Type="int" Nullable="false" />
+          <Property Name="MaDK" Type="int" />
+          <Property Name="NgayCap" Type="date" />
+          <Property Name="HanSD" Type="date" />
+          <Property Name="TinhTrang" Type="varchar" MaxLength="50" />
+          <Property Name="NgayCN" Type="date" />
+        </EntityType>
+        <EntityType Name="MuonTra">
+          <Key>
+            <PropertyRef Name="IDMuonTra" />
+          </Key>
+          <Property Name="IDMuonTra" Type="int" Nullable="false" />
+          <Property Name="SoThe" Type="int" />
+          <Property Name="MaSach" Type="int" />
+          <Property Name="NgayMuon" Type="date" />
+          <Property Name="HanTra" Type="date" />
         </EntityType>
         <EntityType Name="QLSach">
           <Key>
@@ -39,7 +49,8 @@
           <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="saleModelStoreContainer">
-          <EntitySet Name="QLDocGia" EntityType="Self.QLDocGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocGia" EntityType="Self.DocGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MuonTra" EntityType="Self.MuonTra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QLSach" EntityType="Self.QLSach" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -48,20 +59,31 @@
     <edmx:ConceptualModels>
       <Schema Namespace="saleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="saleEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="QLDocGias" EntityType="saleModel.QLDocGia" />
+          <EntitySet Name="DocGias" EntityType="saleModel.DocGia" />
+          <EntitySet Name="MuonTras" EntityType="saleModel.MuonTra" />
           <EntitySet Name="QLSaches" EntityType="saleModel.QLSach" />
           <EntitySet Name="TaiKhoans" EntityType="saleModel.TaiKhoan" />
         </EntityContainer>
-        <EntityType Name="QLDocGia">
+        <EntityType Name="DocGia">
           <Key>
-            <PropertyRef Name="MaDocGia" />
+            <PropertyRef Name="SoThe" />
           </Key>
-          <Property Name="MaDocGia" Type="Int32" Nullable="false" />
-          <Property Name="TenDocGia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NgaySinh" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="MSSV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="NgayHetHan" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SoThe" Type="Int32" Nullable="false" />
+          <Property Name="MaDK" Type="Int32" />
+          <Property Name="NgayCap" Type="DateTime" Precision="0" />
+          <Property Name="HanSD" Type="DateTime" Precision="0" />
+          <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NgayCN" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="MuonTra">
+          <Key>
+            <PropertyRef Name="IDMuonTra" />
+          </Key>
+          <Property Name="IDMuonTra" Type="Int32" Nullable="false" />
+          <Property Name="SoThe" Type="Int32" />
+          <Property Name="MaSach" Type="Int32" />
+          <Property Name="NgayMuon" Type="DateTime" Precision="0" />
+          <Property Name="HanTra" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="QLSach">
           <Key>
@@ -91,15 +113,26 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="saleModelStoreContainer" CdmEntityContainer="saleEntities">
-          <EntitySetMapping Name="QLDocGias">
-            <EntityTypeMapping TypeName="saleModel.QLDocGia">
-              <MappingFragment StoreEntitySet="QLDocGia">
-                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
-                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
-                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
-                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
-                <ScalarProperty Name="TenDocGia" ColumnName="TenDocGia" />
-                <ScalarProperty Name="MaDocGia" ColumnName="MaDocGia" />
+          <EntitySetMapping Name="DocGias">
+            <EntityTypeMapping TypeName="saleModel.DocGia">
+              <MappingFragment StoreEntitySet="DocGia">
+                <ScalarProperty Name="NgayCN" ColumnName="NgayCN" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="HanSD" ColumnName="HanSD" />
+                <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+                <ScalarProperty Name="MaDK" ColumnName="MaDK" />
+                <ScalarProperty Name="SoThe" ColumnName="SoThe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MuonTras">
+            <EntityTypeMapping TypeName="saleModel.MuonTra">
+              <MappingFragment StoreEntitySet="MuonTra">
+                <ScalarProperty Name="HanTra" ColumnName="HanTra" />
+                <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
+                <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+                <ScalarProperty Name="SoThe" ColumnName="SoThe" />
+                <ScalarProperty Name="IDMuonTra" ColumnName="IDMuonTra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

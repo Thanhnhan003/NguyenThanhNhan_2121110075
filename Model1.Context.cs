@@ -25,8 +25,9 @@ namespace NguyenThanhNhan_2121110075
             throw new UnintentionalCodeFirstException();
         }
     
-        public System.Data.Entity.DbSet<QLDocGia> QLDocGias { get; set; }
-        public System.Data.Entity.DbSet<QLSach> QLSaches { get; set; }
-        public System.Data.Entity.DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<DocGia> DocGias { get; set; }
+        public virtual DbSet<MuonTra> MuonTras { get; set; }
+        public virtual DbSet<QLSach> QLSaches { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

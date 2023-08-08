@@ -12,13 +12,12 @@ namespace NguyenThanhNhan_2121110075
     using System;
     using System.Collections.Generic;
     
-    public partial class QLDocGia
+    public partial class MuonTra
     {
-        public int MaDocGia { get; set; }
-        public string TenDocGia { get; set; }
-        public string NgaySinh { get; set; }
-        public string MSSV { get; set; }
-        public string SoDienThoai { get; set; }
-        public string NgayHetHan { get; set; }
+        public int IDMuonTra { get; set; }
+        public Nullable<int> SoThe { get; set; }
+        public Nullable<int> MaSach { get; set; }
+        public Nullable<System.DateTime> NgayMuon { get; set; }
+        public Nullable<System.DateTime> HanTra { get; set; }
     }
 }
