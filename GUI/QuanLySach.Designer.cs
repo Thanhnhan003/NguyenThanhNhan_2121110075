@@ -58,6 +58,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.theLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qLSachBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.qLSachBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnImportExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,6 +91,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.btnImportExcel);
             this.groupBox1.Controls.Add(this.dtNamSB);
             this.groupBox1.Controls.Add(this.cmTheLoai);
             this.groupBox1.Controls.Add(this.btnEdit);
@@ -345,6 +347,18 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             this.qLSachBindingSource1.DataSource = typeof(NguyenThanhNhan_2121110075.QLSach);
             // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.BackColor = System.Drawing.Color.Blue;
+            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnImportExcel.Location = new System.Drawing.Point(251, 499);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.Size = new System.Drawing.Size(151, 43);
+            this.btnImportExcel.TabIndex = 5;
+            this.btnImportExcel.Text = "Inport Excel";
+            this.btnImportExcel.UseVisualStyleBackColor = false;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
+            // 
             // QuanLySach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -398,5 +412,6 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn theLoaiDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource qLSachBindingSource2;
+        private System.Windows.Forms.Button btnImportExcel;
     }
 }

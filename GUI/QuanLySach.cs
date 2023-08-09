@@ -290,7 +290,37 @@ namespace NguyenThanhNhan_2121110075.GUI
             }
         }
 
+        private void btnInportExcel_Click(object sender, EventArgs e)
+        {
+            // Hiển thị hộp thoại mở tệp để người dùng chọn tệp Excel
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
 
+                // Đọc dữ liệu từ tệp Excel bằng thư viện ClosedXML
+                using (XLWorkbook workbook = new XLWorkbook(filePath))
+                {
+                    IXLWorksheet worksheet = workbook.Worksheet(1); // Chọn worksheet đầu tiên
+
+                    // Lặp qua các dòng từ dòng thứ 2 (bỏ qua tiêu đề)
+                    for (int row = 2; row <= worksheet.LastRowUsed().RowNumber(); row++)
+                    {
+                        // Đọc giá trị từ tệp Excel
+                        string maSach = worksheet.Cell(row, 1).Value.ToString();
+                        string tenSach = worksheet.Cell(row, 2).Value.ToString();
+                        string tenTacGia = worksheet.Cell(row, 3).Value.ToString();
+                        DateTime? namXuatBan = worksheet.Cell(row, 4).GetValue<DateTime?>();
+                        int? soLuong = worksheet.Cell(row, 5).GetValue<int?>();
+                        string theLoai = worksheet.Cell(row, 6).Value.ToString();
+
+                        // Thêm dữ liệu vào DataGridView
+                        dataGridView1.Rows.Add(maSach, tenSach, tenTacGia, namXuatBan, soLuong, theLoai);
+                    }
+                }
+            }
+        }
 
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -307,5 +337,55 @@ namespace NguyenThanhNhan_2121110075.GUI
         {
             // ... Xử lý thay đổi ngày tháng ...
         }
+
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                using (XLWorkbook workbook = new XLWorkbook(filePath))
+                {
+                    IXLWorksheet worksheet = workbook.Worksheet(1); // Chọn sheet cần xử lý
+
+                    foreach (IXLRow row in worksheet.RowsUsed().Skip(1)) // Bắt đầu từ dòng thứ 2 (bỏ qua dòng tiêu đề)
+                    {
+                        string tenSach = row.Cell(2).Value.ToString();
+                        string tenTacGia = row.Cell(3).Value.ToString();
+
+                        string namXuatBanStr = row.Cell(4).Value.ToString();
+                        DateTime? namXuatBan = null;
+
+                        if (DateTime.TryParse(namXuatBanStr, out DateTime parsedNamXuatBan))
+                        {
+                            namXuatBan = parsedNamXuatBan;
+                        }
+
+                        int? soLuong = row.Cell(5).GetValue<int?>();
+                        string theLoai = row.Cell(6).Value.ToString();
+
+                        // Để tiếp tục xử lý dữ liệu và thêm vào cơ sở dữ liệu
+                        // Sử dụng các giá trị 'tenSach', 'tenTacGia', 'namXuatBan', 'soLuong', 'theLoai' ở đây
+
+                        // Ví dụ: thêm sách vào cơ sở dữ liệu
+                        //QLSach sach = new QLSach
+                        //{
+                        //    TenSach = tenSach,
+                        //    TenTacGia = tenTacGia,
+                        //    NamXuatBan = namXuatBan,
+                        //    SoLuong = soLuong,
+                        //    TheLoai = theLoai
+                        //};
+                        //qlsBAL.AddQuanLySach(sach);
+                    }
+
+                    MessageBox.Show("Nhập dữ liệu từ tệp Excel thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
     }
 }
