@@ -24,19 +24,11 @@ namespace NguyenThanhNhan_2121110075.DAL
         {
             _context.QLSaches.Add(qls);
             _context.SaveChanges();
-        }
-        public bool IsTenSachExists(string tenSach)
-        {
-            return _context.QLSaches.Any(s => s.TenSach == tenSach);
-        }
+        }      
         public void RemoveSach(QLSach qls)
         {
             _context.QLSaches.Remove(qls);
             _context.SaveChanges();
-        }
-        public QLSach GetQuanLySachByMaSach(string maSach)
-        {
-            return _context.QLSaches.FirstOrDefault(s => s.MaSach == maSach);
         }
         public void UpdateSach(QLSach qls)
         {
@@ -52,6 +44,14 @@ namespace NguyenThanhNhan_2121110075.DAL
             }
         }
 
+        public bool IsTenSachExists(string tenSach)
+        {
+            return _context.QLSaches.Any(s => s.TenSach == tenSach);
+        }
+        public QLSach GetQuanLySachByMaSach(string maSach)
+        {
+            return _context.QLSaches.FirstOrDefault(s => s.MaSach == maSach);
+        }
 
     }
 }

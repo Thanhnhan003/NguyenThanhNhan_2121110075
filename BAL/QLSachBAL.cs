@@ -26,6 +26,18 @@ namespace NguyenThanhNhan_2121110075.BAL
         {
             _qlSachDAL.AddSach(qls);
         }
+        public void DeleteQuanLySach(QLSach qls)
+        {
+            _qlSachDAL.RemoveSach(qls);
+        }
+        public void UpdateQuanLySach(QLSach qls)
+        {
+            _qlSachDAL.UpdateSach(qls);
+        }
+
+
+
+
         public int GetNextAvailableCodeNumber()
         {
             List<QLSach> existingBooks = ReadQuanLySach(); // Đọc tất cả sách từ nguồn dữ liệu
@@ -51,10 +63,7 @@ namespace NguyenThanhNhan_2121110075.BAL
         {
             return _qlSachDAL.IsTenSachExists(tenSach);
         }
-        public void DeleteQuanLySach(QLSach qls)
-        {
-            _qlSachDAL.RemoveSach(qls);
-        }
+       
         public QLSach GetQuanLySachByMaSach(string maSach)
         {
             return _qlSachDAL.GetQuanLySachByMaSach(maSach);
@@ -121,10 +130,7 @@ namespace NguyenThanhNhan_2121110075.BAL
 
             return smallestDeletedCodeNumber;
         }
-        public void UpdateQuanLySach(QLSach qls)
-        {
-            _qlSachDAL.UpdateSach(qls);
-        }
+        
 
 
     }
