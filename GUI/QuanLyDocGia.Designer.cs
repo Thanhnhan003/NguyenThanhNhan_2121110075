@@ -33,7 +33,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.docGiaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateNC = new System.Windows.Forms.DateTimePicker();
@@ -51,21 +50,24 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.docGiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.docGiaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.maDocGiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenDocGiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayCapDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hanSDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayCNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docGiaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.docGiaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.docGiaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.docGiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -92,24 +94,19 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maDocGiaDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
             this.tenDocGiaDataGridViewTextBoxColumn,
             this.ngayCapDataGridViewTextBoxColumn,
             this.hanSDDataGridViewTextBoxColumn,
             this.tinhTrangDataGridViewTextBoxColumn,
             this.ngayCNDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.docGiaBindingSource3;
+            this.dataGridView1.DataSource = this.docGiaBindingSource4;
             this.dataGridView1.Location = new System.Drawing.Point(0, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(871, 430);
             this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // docGiaBindingSource2
-            // 
-            this.docGiaBindingSource2.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
             // 
             // groupBox1
             // 
@@ -200,6 +197,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnExExcel
             // 
@@ -224,6 +222,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -300,20 +299,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên Độc Giả";
             // 
-            // docGiaBindingSource
+            // dataGridViewTextBoxColumn1
             // 
-            this.docGiaBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
-            // 
-            // docGiaBindingSource3
-            // 
-            this.docGiaBindingSource3.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
-            // 
-            // maDocGiaDataGridViewTextBoxColumn
-            // 
-            this.maDocGiaDataGridViewTextBoxColumn.DataPropertyName = "maDocGia";
-            this.maDocGiaDataGridViewTextBoxColumn.HeaderText = "MaDocGia";
-            this.maDocGiaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maDocGiaDataGridViewTextBoxColumn.Name = "maDocGiaDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MaDocGia";
+            this.dataGridViewTextBoxColumn1.HeaderText = "MaDocGia";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // tenDocGiaDataGridViewTextBoxColumn
             // 
@@ -325,7 +316,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             // ngayCapDataGridViewTextBoxColumn
             // 
             this.ngayCapDataGridViewTextBoxColumn.DataPropertyName = "NgayCap";
-            this.ngayCapDataGridViewTextBoxColumn.HeaderText = "NgayCap";
+            this.ngayCapDataGridViewTextBoxColumn.HeaderText = "NgayCapSD";
             this.ngayCapDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.ngayCapDataGridViewTextBoxColumn.Name = "ngayCapDataGridViewTextBoxColumn";
             // 
@@ -350,6 +341,22 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.ngayCNDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.ngayCNDataGridViewTextBoxColumn.Name = "ngayCNDataGridViewTextBoxColumn";
             // 
+            // docGiaBindingSource4
+            // 
+            this.docGiaBindingSource4.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            // 
+            // docGiaBindingSource3
+            // 
+            this.docGiaBindingSource3.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            // 
+            // docGiaBindingSource2
+            // 
+            this.docGiaBindingSource2.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            // 
+            // docGiaBindingSource
+            // 
+            this.docGiaBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            // 
             // QuanLyDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -365,12 +372,13 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,11 +408,13 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.BindingSource docGiaBindingSource2;
         private System.Windows.Forms.DateTimePicker dateNCN;
         private System.Windows.Forms.DataGridViewTextBoxColumn maDocGiaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource docGiaBindingSource3;
+        private System.Windows.Forms.BindingSource docGiaBindingSource4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenDocGiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayCapDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hanSDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tinhTrangDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayCNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource docGiaBindingSource3;
     }
 }

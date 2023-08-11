@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NguyenThanhNhan_2121110075.DAL;
 
 namespace NguyenThanhNhan_2121110075.DAL
 {
@@ -19,15 +18,41 @@ namespace NguyenThanhNhan_2121110075.DAL
         {
             return _context.DocGias.ToList();
         }
+
         public void AddDocGia(DocGia docGia)
         {
             _context.DocGias.Add(docGia);
             _context.SaveChanges();
         }
-        public bool IsTenDocGiaExists(string tenDocGia)
+
+        public void RemoveDocGia(DocGia docGia)
         {
-            return _context.DocGias.Any(dg => dg.TenDocGia == tenDocGia);
+            _context.DocGias.Remove(docGia);
+            _context.SaveChanges();
         }
 
+        public void UpdateDocGia(DocGia docGia)
+        {
+            DocGia existingDocGia = _context.DocGias.Find(docGia.MaDocGia);
+            if (existingDocGia != null)
+            {
+                existingDocGia.TenDocGia = docGia.TenDocGia;
+                existingDocGia.NgayCap = docGia.NgayCap;
+                existingDocGia.HanSD = docGia.HanSD;
+                existingDocGia.TinhTrang = docGia.TinhTrang;
+                existingDocGia.NgayCN = docGia.NgayCN;
+                _context.SaveChanges();
+            }
+        }
+
+        public bool IsTenDocGiaExists(string tenDocGia)
+        {
+            return _context.DocGias.Any(d => d.TenDocGia == tenDocGia);
+        }
+
+        public DocGia GetQuanLyDocGiaByMaDocGia(string maDocGia)
+        {
+            return _context.DocGias.FirstOrDefault(d => d.MaDocGia == maDocGia);
+        }
     }
 }

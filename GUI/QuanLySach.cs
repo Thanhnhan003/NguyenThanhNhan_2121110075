@@ -70,10 +70,7 @@ namespace NguyenThanhNhan_2121110075.GUI
         }
 
 
-        private void UpdateCurrentCodeNumber()
-        {
-            currentCodeNumber++;
-        }
+ 
 
         private void btnAdd_Click(object sender, EventArgs e)
         {

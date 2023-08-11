@@ -258,6 +258,12 @@
     <Compile Include="GUI\QuanLyDocGia.Designer.cs">
       <DependentUpon>QuanLyDocGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\QuanLyMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyMuon.Designer.cs">
+      <DependentUpon>QuanLyMuon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\QuanLySach.cs">
       <SubType>Form</SubType>
     </Compile>
