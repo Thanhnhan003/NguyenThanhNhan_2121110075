@@ -235,8 +235,10 @@
   <ItemGroup>
     <Compile Include="BAL\LoginBAL.cs" />
     <Compile Include="BAL\QLDocGiaBAL.cs" />
+    <Compile Include="BAL\QLMuonBAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\QLDocGiaDAL.cs" />
+    <Compile Include="DAL\QLMuonDAL.cs" />
     <Compile Include="DocGia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -309,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDocGia.resx">
       <DependentUpon>QuanLyDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyMuon.resx">
+      <DependentUpon>QuanLyMuon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLySach.resx">
       <DependentUpon>QuanLySach.cs</DependentUpon>
