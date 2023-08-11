@@ -64,7 +64,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             if (result == DialogResult.Yes)
             {
                 this.Close();
-                //Application.Exit();
+                Application.Exit();
             }
         }
         private Form currentFormChild;
@@ -90,7 +90,7 @@ namespace NguyenThanhNhan_2121110075.GUI
         }
         private void btnDocGia_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new DocGia());
+            OpenChildForm(new QuanLyDocGia());
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

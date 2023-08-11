@@ -12,22 +12,26 @@ namespace NguyenThanhNhan_2121110075
     using System;
     using System.Collections.Generic;
     
-    public partial class DocGia
+    public partial class QLMuon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DocGia()
+        public QLMuon()
         {
-            this.QLMuons = new HashSet<QLMuon>();
+            this.QLTras = new HashSet<QLTra>();
         }
     
-        public string MaDocGia { get; set; }
-        public string TenDocGia { get; set; }
-        public Nullable<System.DateTime> NgayCap { get; set; }
-        public Nullable<System.DateTime> HanSD { get; set; }
-        public string TinhTrang { get; set; }
-        public Nullable<System.DateTime> NgayCN { get; set; }
+        public string maPhieuMuon { get; set; }
+        public string maNVMuon { get; set; }
+        public string maDocGiaMuon { get; set; }
+        public string maTaiLieuMuon { get; set; }
+        public Nullable<System.DateTime> NgayMuon { get; set; }
+        public Nullable<System.DateTime> HanTra { get; set; }
+        public string maSach { get; set; }
     
+        public virtual DocGia DocGia { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
+        public virtual QLSach QLSach { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QLMuon> QLMuons { get; set; }
+        public virtual ICollection<QLTra> QLTras { get; set; }
     }
 }

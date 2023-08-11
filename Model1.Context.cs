@@ -26,8 +26,9 @@ namespace NguyenThanhNhan_2121110075
         }
     
         public virtual DbSet<DocGia> DocGias { get; set; }
-        public virtual DbSet<MuonTra> MuonTras { get; set; }
+        public virtual DbSet<QLMuon> QLMuons { get; set; }
         public virtual DbSet<QLSach> QLSaches { get; set; }
+        public virtual DbSet<QLTra> QLTras { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

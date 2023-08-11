@@ -12,12 +12,16 @@ namespace NguyenThanhNhan_2121110075
     using System;
     using System.Collections.Generic;
     
-    public partial class MuonTra
+    public partial class QLTra
     {
-        public int IDMuonTra { get; set; }
-        public Nullable<int> SoThe { get; set; }
-        public Nullable<int> MaSach { get; set; }
-        public Nullable<System.DateTime> NgayMuon { get; set; }
-        public Nullable<System.DateTime> HanTra { get; set; }
+        public string maPhieuTra { get; set; }
+        public string maNVTra { get; set; }
+        public string maPhieuMuon { get; set; }
+        public Nullable<System.DateTime> NgayTra { get; set; }
+        public string maSach { get; set; }
+    
+        public virtual QLMuon QLMuon { get; set; }
+        public virtual QLSach QLSach { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }
