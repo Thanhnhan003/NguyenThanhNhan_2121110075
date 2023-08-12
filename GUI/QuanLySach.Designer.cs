@@ -31,7 +31,15 @@ namespace NguyenThanhNhan_2121110075.GUI
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.maSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenTacGiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namXuatBanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soLuongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.theLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qLSachBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImportExcel = new System.Windows.Forms.Button();
             this.dtNamSB = new System.Windows.Forms.DateTimePicker();
             this.cmTheLoai = new System.Windows.Forms.ComboBox();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -48,22 +56,15 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.qLSachBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.maSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenTacGiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namXuatBanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soLuongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.theLoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qLSachBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.qLSachBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnImportExcel = new System.Windows.Forms.Button();
+            this.rbSearchByMaSach = new System.Windows.Forms.RadioButton();
+            this.rbSearchByTenSach = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +88,52 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridView1.Size = new System.Drawing.Size(871, 430);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // maSachDataGridViewTextBoxColumn
+            // 
+            this.maSachDataGridViewTextBoxColumn.DataPropertyName = "MaSach";
+            this.maSachDataGridViewTextBoxColumn.HeaderText = "MaSach";
+            this.maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
+            // 
+            // tenSachDataGridViewTextBoxColumn
+            // 
+            this.tenSachDataGridViewTextBoxColumn.DataPropertyName = "TenSach";
+            this.tenSachDataGridViewTextBoxColumn.HeaderText = "TenSach";
+            this.tenSachDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tenSachDataGridViewTextBoxColumn.Name = "tenSachDataGridViewTextBoxColumn";
+            // 
+            // tenTacGiaDataGridViewTextBoxColumn
+            // 
+            this.tenTacGiaDataGridViewTextBoxColumn.DataPropertyName = "TenTacGia";
+            this.tenTacGiaDataGridViewTextBoxColumn.HeaderText = "TenTacGia";
+            this.tenTacGiaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tenTacGiaDataGridViewTextBoxColumn.Name = "tenTacGiaDataGridViewTextBoxColumn";
+            // 
+            // namXuatBanDataGridViewTextBoxColumn
+            // 
+            this.namXuatBanDataGridViewTextBoxColumn.DataPropertyName = "NamXuatBan";
+            this.namXuatBanDataGridViewTextBoxColumn.HeaderText = "NamXuatBan";
+            this.namXuatBanDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.namXuatBanDataGridViewTextBoxColumn.Name = "namXuatBanDataGridViewTextBoxColumn";
+            // 
+            // soLuongDataGridViewTextBoxColumn
+            // 
+            this.soLuongDataGridViewTextBoxColumn.DataPropertyName = "SoLuong";
+            this.soLuongDataGridViewTextBoxColumn.HeaderText = "SoLuong";
+            this.soLuongDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.soLuongDataGridViewTextBoxColumn.Name = "soLuongDataGridViewTextBoxColumn";
+            // 
+            // theLoaiDataGridViewTextBoxColumn
+            // 
+            this.theLoaiDataGridViewTextBoxColumn.DataPropertyName = "TheLoai";
+            this.theLoaiDataGridViewTextBoxColumn.HeaderText = "TheLoai";
+            this.theLoaiDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.theLoaiDataGridViewTextBoxColumn.Name = "theLoaiDataGridViewTextBoxColumn";
+            // 
+            // qLSachBindingSource2
+            // 
+            this.qLSachBindingSource2.DataSource = typeof(NguyenThanhNhan_2121110075.QLSach);
             // 
             // groupBox1
             // 
@@ -113,6 +160,18 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.BackColor = System.Drawing.Color.Blue;
+            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnImportExcel.Location = new System.Drawing.Point(251, 499);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.Size = new System.Drawing.Size(151, 43);
+            this.btnImportExcel.TabIndex = 5;
+            this.btnImportExcel.Text = "Inport Excel";
+            this.btnImportExcel.UseVisualStyleBackColor = false;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // dtNamSB
             // 
@@ -269,8 +328,9 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbSearchByTenSach);
+            this.groupBox2.Controls.Add(this.rbSearchByMaSach);
             this.groupBox2.Controls.Add(this.tbSearch);
-            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(2, 1);
             this.groupBox2.Name = "groupBox2";
@@ -285,79 +345,33 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(553, 31);
             this.tbSearch.TabIndex = 1;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(27, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tìm kiếm mã sách";
-            // 
-            // maSachDataGridViewTextBoxColumn
-            // 
-            this.maSachDataGridViewTextBoxColumn.DataPropertyName = "MaSach";
-            this.maSachDataGridViewTextBoxColumn.HeaderText = "MaSach";
-            this.maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
-            // 
-            // tenSachDataGridViewTextBoxColumn
-            // 
-            this.tenSachDataGridViewTextBoxColumn.DataPropertyName = "TenSach";
-            this.tenSachDataGridViewTextBoxColumn.HeaderText = "TenSach";
-            this.tenSachDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tenSachDataGridViewTextBoxColumn.Name = "tenSachDataGridViewTextBoxColumn";
-            // 
-            // tenTacGiaDataGridViewTextBoxColumn
-            // 
-            this.tenTacGiaDataGridViewTextBoxColumn.DataPropertyName = "TenTacGia";
-            this.tenTacGiaDataGridViewTextBoxColumn.HeaderText = "TenTacGia";
-            this.tenTacGiaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tenTacGiaDataGridViewTextBoxColumn.Name = "tenTacGiaDataGridViewTextBoxColumn";
-            // 
-            // namXuatBanDataGridViewTextBoxColumn
-            // 
-            this.namXuatBanDataGridViewTextBoxColumn.DataPropertyName = "NamXuatBan";
-            this.namXuatBanDataGridViewTextBoxColumn.HeaderText = "NamXuatBan";
-            this.namXuatBanDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.namXuatBanDataGridViewTextBoxColumn.Name = "namXuatBanDataGridViewTextBoxColumn";
-            // 
-            // soLuongDataGridViewTextBoxColumn
-            // 
-            this.soLuongDataGridViewTextBoxColumn.DataPropertyName = "SoLuong";
-            this.soLuongDataGridViewTextBoxColumn.HeaderText = "SoLuong";
-            this.soLuongDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.soLuongDataGridViewTextBoxColumn.Name = "soLuongDataGridViewTextBoxColumn";
-            // 
-            // theLoaiDataGridViewTextBoxColumn
-            // 
-            this.theLoaiDataGridViewTextBoxColumn.DataPropertyName = "TheLoai";
-            this.theLoaiDataGridViewTextBoxColumn.HeaderText = "TheLoai";
-            this.theLoaiDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.theLoaiDataGridViewTextBoxColumn.Name = "theLoaiDataGridViewTextBoxColumn";
-            // 
-            // qLSachBindingSource2
-            // 
-            this.qLSachBindingSource2.DataSource = typeof(NguyenThanhNhan_2121110075.QLSach);
+            this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
             // qLSachBindingSource1
             // 
             this.qLSachBindingSource1.DataSource = typeof(NguyenThanhNhan_2121110075.QLSach);
             // 
-            // btnImportExcel
+            // rbSearchByMaSach
             // 
-            this.btnImportExcel.BackColor = System.Drawing.Color.Blue;
-            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
-            this.btnImportExcel.Location = new System.Drawing.Point(251, 499);
-            this.btnImportExcel.Name = "btnImportExcel";
-            this.btnImportExcel.Size = new System.Drawing.Size(151, 43);
-            this.btnImportExcel.TabIndex = 5;
-            this.btnImportExcel.Text = "Inport Excel";
-            this.btnImportExcel.UseVisualStyleBackColor = false;
-            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
+            this.rbSearchByMaSach.AutoSize = true;
+            this.rbSearchByMaSach.Location = new System.Drawing.Point(75, 30);
+            this.rbSearchByMaSach.Name = "rbSearchByMaSach";
+            this.rbSearchByMaSach.Size = new System.Drawing.Size(107, 29);
+            this.rbSearchByMaSach.TabIndex = 2;
+            this.rbSearchByMaSach.TabStop = true;
+            this.rbSearchByMaSach.Text = "Mã Sách";
+            this.rbSearchByMaSach.UseVisualStyleBackColor = true;
+            // 
+            // rbSearchByTenSach
+            // 
+            this.rbSearchByTenSach.AutoSize = true;
+            this.rbSearchByTenSach.Location = new System.Drawing.Point(75, 65);
+            this.rbSearchByTenSach.Name = "rbSearchByTenSach";
+            this.rbSearchByTenSach.Size = new System.Drawing.Size(110, 29);
+            this.rbSearchByTenSach.TabIndex = 3;
+            this.rbSearchByTenSach.TabStop = true;
+            this.rbSearchByTenSach.Text = "Tên Sách";
+            this.rbSearchByTenSach.UseVisualStyleBackColor = true;
             // 
             // QuanLySach
             // 
@@ -372,12 +386,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.Name = "QuanLySach";
             this.Text = "QuanLySach";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -389,7 +403,6 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSoLuong;
         private System.Windows.Forms.TextBox tbTacGia;
         private System.Windows.Forms.TextBox tbNameS;
@@ -413,5 +426,7 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn theLoaiDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource qLSachBindingSource2;
         private System.Windows.Forms.Button btnImportExcel;
+        private System.Windows.Forms.RadioButton rbSearchByTenSach;
+        private System.Windows.Forms.RadioButton rbSearchByMaSach;
     }
 }

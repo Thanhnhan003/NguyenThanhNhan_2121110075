@@ -33,7 +33,6 @@ namespace NguyenThanhNhan_2121110075
             this.txtPASS = new System.Windows.Forms.TextBox();
             this.txtUSER = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
-            this.btnDangKy = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -81,7 +80,7 @@ namespace NguyenThanhNhan_2121110075
             this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangNhap.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
-            this.btnDangNhap.Location = new System.Drawing.Point(543, 382);
+            this.btnDangNhap.Location = new System.Drawing.Point(384, 377);
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(177, 47);
@@ -89,24 +88,6 @@ namespace NguyenThanhNhan_2121110075
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
-            // btnDangKy
-            // 
-            this.btnDangKy.BackColor = System.Drawing.Color.Turquoise;
-            this.btnDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDangKy.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnDangKy.FlatAppearance.BorderSize = 0;
-            this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangKy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangKy.ForeColor = System.Drawing.Color.White;
-            this.btnDangKy.Location = new System.Drawing.Point(261, 384);
-            this.btnDangKy.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(188, 43);
-            this.btnDangKy.TabIndex = 41;
-            this.btnDangKy.Text = "Đăng ký";
-            this.btnDangKy.UseVisualStyleBackColor = false;
-            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // label2
             // 
@@ -187,7 +168,6 @@ namespace NguyenThanhNhan_2121110075
             this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnDangKy);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txtPASS);
@@ -217,7 +197,6 @@ namespace NguyenThanhNhan_2121110075
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnDangNhap;
-        private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
     }

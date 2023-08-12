@@ -29,7 +29,30 @@ namespace NguyenThanhNhan_2121110075.GUI
 
             pnLeft.BackColor = Color.Silver;
             pnLeft.Dock = DockStyle.Left;
+
+            // Không cần hiển thị form đăng nhập ở đây nữa
+
+            // Các thao tác khác trong form Home
         }
+
+        private TaiKhoan loggedInAccount;
+
+        public Home(TaiKhoan account)
+        {
+            InitializeComponent();
+            loggedInAccount = account;
+            this.WindowState = FormWindowState.Normal;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            UpdateAccountInfo();
+        }
+
+        private void UpdateAccountInfo()
+        {
+            lbName.Text = loggedInAccount.TenNguoiDung;
+            label3.Text = loggedInAccount.ChucVu;
+        }
+
+
         private void Home_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
@@ -99,6 +122,16 @@ namespace NguyenThanhNhan_2121110075.GUI
             {
                 currentFormChild.Close();
             }
+        }
+
+        private void btnMuon_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuanLyMuon());
+        }
+
+        private void btnTaiKhoan_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuanLyTaiKhoan());
         }
     }
 }

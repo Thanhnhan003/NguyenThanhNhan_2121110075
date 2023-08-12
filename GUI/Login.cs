@@ -24,6 +24,10 @@ namespace NguyenThanhNhan_2121110075
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        public delegate void AccountInfoHandler(string tenNguoiDung, string chucVu);
+
+        public event AccountInfoHandler OnAccountInfoReceived;
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string tenTaiKhoan = txtUSER.Text;
@@ -39,9 +43,19 @@ namespace NguyenThanhNhan_2121110075
 
             if (isValidLogin)
             {
-                MessageBox.Show("Chúc mừng bạn đăng nhập thành công.");
-                
-                new Home().Show();
+                TaiKhoan account = _loginBAL.GetTaiKhoanByTenTaiKhoan(tenTaiKhoan);
+
+                if (account != null)
+                {
+                    // Gửi thông tin tài khoản về form Home
+                    OnAccountInfoReceived?.Invoke(account.TenNguoiDung, account.ChucVu);
+                }
+
+                // Tạo instance của form Home
+                Home home = new Home(account);
+
+                // Hiển thị form Home và đóng form Login
+                home.Show();
                 this.Hide();
             }
             else
@@ -50,7 +64,8 @@ namespace NguyenThanhNhan_2121110075
             }
         }
 
-        // Các phần còn lại của mã không thay đổi
+
+
 
 
         private bool isDragging = false;
@@ -93,7 +108,7 @@ namespace NguyenThanhNhan_2121110075
             //new Register().Show();
             //this.Hide();
         }
-        
+
 
 
 

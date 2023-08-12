@@ -40,11 +40,13 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnLeft = new System.Windows.Forms.Panel();
+            this.btnTaiKhoan = new System.Windows.Forms.Button();
+            this.btnTra = new System.Windows.Forms.Button();
+            this.btnMuon = new System.Windows.Forms.Button();
             this.btnDocGia = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPanelSach = new System.Windows.Forms.Button();
             this.taiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.pnBody.SuspendLayout();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -157,7 +159,9 @@ namespace NguyenThanhNhan_2121110075.GUI
             // pnLeft
             // 
             this.pnLeft.BackColor = System.Drawing.Color.Silver;
-            this.pnLeft.Controls.Add(this.button1);
+            this.pnLeft.Controls.Add(this.btnTaiKhoan);
+            this.pnLeft.Controls.Add(this.btnTra);
+            this.pnLeft.Controls.Add(this.btnMuon);
             this.pnLeft.Controls.Add(this.btnDocGia);
             this.pnLeft.Controls.Add(this.label2);
             this.pnLeft.Controls.Add(this.btnPanelSach);
@@ -166,6 +170,65 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Size = new System.Drawing.Size(200, 555);
             this.pnLeft.TabIndex = 23;
+            // 
+            // btnTaiKhoan
+            // 
+            this.btnTaiKhoan.BackColor = System.Drawing.Color.Red;
+            this.btnTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTaiKhoan.FlatAppearance.BorderSize = 0;
+            this.btnTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiKhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTaiKhoan.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.icons8_people_50;
+            this.btnTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTaiKhoan.Location = new System.Drawing.Point(19, 449);
+            this.btnTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTaiKhoan.Name = "btnTaiKhoan";
+            this.btnTaiKhoan.Size = new System.Drawing.Size(163, 91);
+            this.btnTaiKhoan.TabIndex = 20;
+            this.btnTaiKhoan.Text = "Tài Khoản";
+            this.btnTaiKhoan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTaiKhoan.UseVisualStyleBackColor = false;
+            this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
+            // 
+            // btnTra
+            // 
+            this.btnTra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnTra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTra.FlatAppearance.BorderSize = 0;
+            this.btnTra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTra.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTra.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTra.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.icons8_people_50;
+            this.btnTra.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTra.Location = new System.Drawing.Point(19, 358);
+            this.btnTra.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTra.Name = "btnTra";
+            this.btnTra.Size = new System.Drawing.Size(163, 91);
+            this.btnTra.TabIndex = 19;
+            this.btnTra.Text = "Quản Lý Trả";
+            this.btnTra.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTra.UseVisualStyleBackColor = false;
+            // 
+            // btnMuon
+            // 
+            this.btnMuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnMuon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMuon.FlatAppearance.BorderSize = 0;
+            this.btnMuon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMuon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMuon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMuon.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.icons8_people_50;
+            this.btnMuon.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMuon.Location = new System.Drawing.Point(19, 267);
+            this.btnMuon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMuon.Name = "btnMuon";
+            this.btnMuon.Size = new System.Drawing.Size(163, 91);
+            this.btnMuon.TabIndex = 18;
+            this.btnMuon.Text = "Quản Lý Mượn";
+            this.btnMuon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMuon.UseVisualStyleBackColor = false;
+            this.btnMuon.Click += new System.EventHandler(this.btnMuon_Click);
             // 
             // btnDocGia
             // 
@@ -219,31 +282,11 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnPanelSach.UseVisualStyleBackColor = false;
             this.btnPanelSach.Click += new System.EventHandler(this.btnPanelSach_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.icons8_people_50;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(19, 267);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 91);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Quản Lý Mượn";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1495, 655);
-            this.ControlBox = false;
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.pnBody);
@@ -281,6 +324,8 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPanelSach;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMuon;
+        private System.Windows.Forms.Button btnTaiKhoan;
+        private System.Windows.Forms.Button btnTra;
     }
 }
