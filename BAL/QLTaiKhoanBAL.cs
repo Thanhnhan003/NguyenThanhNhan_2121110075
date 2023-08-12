@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using NguyenThanhNhan_2121110075.DAL;
 
-
 namespace NguyenThanhNhan_2121110075.BAL
 {
     public class QLTaiKhoanBAL
@@ -19,7 +18,8 @@ namespace NguyenThanhNhan_2121110075.BAL
 
         public List<TaiKhoan> ReadQLTaiKhoan()
         {
-            return _qlTaiKhoanDAL.ReadQLTaiKhoan();
+            List<TaiKhoan> lstTaiKhoan = _qlTaiKhoanDAL.ReadQLTaiKhoan();
+            return lstTaiKhoan;
         }
 
         public void AddTaiKhoan(TaiKhoan tk)
@@ -35,6 +35,16 @@ namespace NguyenThanhNhan_2121110075.BAL
         public void UpdateTaiKhoan(TaiKhoan tk)
         {
             _qlTaiKhoanDAL.UpdateTaiKhoan(tk);
+        }
+
+        public bool IsTenTaiKhoanExists(string tenTaiKhoan)
+        {
+            return _qlTaiKhoanDAL.IsTenTaiKhoanExists(tenTaiKhoan);
+        }
+
+        public TaiKhoan GetTaiKhoanByTenTaiKhoan(string tenTaiKhoan)
+        {
+            return _qlTaiKhoanDAL.GetTaiKhoanByTenTaiKhoan(tenTaiKhoan);
         }
     }
 }

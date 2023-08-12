@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NguyenThanhNhan_2121110075;
 
 namespace NguyenThanhNhan_2121110075.DAL
 {
@@ -45,6 +46,16 @@ namespace NguyenThanhNhan_2121110075.DAL
                 existingTK.SoDienThoai = tk.SoDienThoai;
                 _context.SaveChanges();
             }
+        }
+
+        public bool IsTenTaiKhoanExists(string tenTaiKhoan)
+        {
+            return _context.TaiKhoans.Any(tk => tk.TenTaiKhoan == tenTaiKhoan);
+        }
+
+        public TaiKhoan GetTaiKhoanByTenTaiKhoan(string tenTaiKhoan)
+        {
+            return _context.TaiKhoans.FirstOrDefault(tk => tk.TenTaiKhoan == tenTaiKhoan);
         }
     }
 }
