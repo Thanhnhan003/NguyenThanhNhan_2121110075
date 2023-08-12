@@ -33,6 +33,13 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenDocGiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayCapDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hanSDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayCNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docGiaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateNC = new System.Windows.Forms.DateTimePicker();
             this.btnImportExcel = new System.Windows.Forms.Button();
@@ -50,21 +57,14 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.docGiaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenDocGiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayCapDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hanSDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayCNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docGiaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).BeginInit();
@@ -103,10 +103,57 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridView1.DataSource = this.docGiaBindingSource4;
             this.dataGridView1.Location = new System.Drawing.Point(7, 126);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(871, 430);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MaDocGia";
+            this.dataGridViewTextBoxColumn1.HeaderText = "MaDocGia";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // tenDocGiaDataGridViewTextBoxColumn
+            // 
+            this.tenDocGiaDataGridViewTextBoxColumn.DataPropertyName = "TenDocGia";
+            this.tenDocGiaDataGridViewTextBoxColumn.HeaderText = "TenDocGia";
+            this.tenDocGiaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tenDocGiaDataGridViewTextBoxColumn.Name = "tenDocGiaDataGridViewTextBoxColumn";
+            // 
+            // ngayCapDataGridViewTextBoxColumn
+            // 
+            this.ngayCapDataGridViewTextBoxColumn.DataPropertyName = "NgayCap";
+            this.ngayCapDataGridViewTextBoxColumn.HeaderText = "NgayCapSD";
+            this.ngayCapDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.ngayCapDataGridViewTextBoxColumn.Name = "ngayCapDataGridViewTextBoxColumn";
+            // 
+            // hanSDDataGridViewTextBoxColumn
+            // 
+            this.hanSDDataGridViewTextBoxColumn.DataPropertyName = "HanSD";
+            this.hanSDDataGridViewTextBoxColumn.HeaderText = "HanSD";
+            this.hanSDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hanSDDataGridViewTextBoxColumn.Name = "hanSDDataGridViewTextBoxColumn";
+            // 
+            // tinhTrangDataGridViewTextBoxColumn
+            // 
+            this.tinhTrangDataGridViewTextBoxColumn.DataPropertyName = "TinhTrang";
+            this.tinhTrangDataGridViewTextBoxColumn.HeaderText = "TinhTrang";
+            this.tinhTrangDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tinhTrangDataGridViewTextBoxColumn.Name = "tinhTrangDataGridViewTextBoxColumn";
+            // 
+            // ngayCNDataGridViewTextBoxColumn
+            // 
+            this.ngayCNDataGridViewTextBoxColumn.DataPropertyName = "NgayCN";
+            this.ngayCNDataGridViewTextBoxColumn.HeaderText = "NgayCN";
+            this.ngayCNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.ngayCNDataGridViewTextBoxColumn.Name = "ngayCNDataGridViewTextBoxColumn";
+            // 
+            // docGiaBindingSource4
+            // 
+            this.docGiaBindingSource4.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
             // 
             // groupBox1
             // 
@@ -177,6 +224,8 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             // cmTT
             // 
+            this.cmTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmTT.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmTT.FormattingEnabled = true;
             this.cmTT.Items.AddRange(new object[] {
             "Khóa",
@@ -299,52 +348,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên Độc Giả";
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MaDocGia";
-            this.dataGridViewTextBoxColumn1.HeaderText = "MaDocGia";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // tenDocGiaDataGridViewTextBoxColumn
-            // 
-            this.tenDocGiaDataGridViewTextBoxColumn.DataPropertyName = "TenDocGia";
-            this.tenDocGiaDataGridViewTextBoxColumn.HeaderText = "TenDocGia";
-            this.tenDocGiaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tenDocGiaDataGridViewTextBoxColumn.Name = "tenDocGiaDataGridViewTextBoxColumn";
-            // 
-            // ngayCapDataGridViewTextBoxColumn
-            // 
-            this.ngayCapDataGridViewTextBoxColumn.DataPropertyName = "NgayCap";
-            this.ngayCapDataGridViewTextBoxColumn.HeaderText = "NgayCapSD";
-            this.ngayCapDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ngayCapDataGridViewTextBoxColumn.Name = "ngayCapDataGridViewTextBoxColumn";
-            // 
-            // hanSDDataGridViewTextBoxColumn
-            // 
-            this.hanSDDataGridViewTextBoxColumn.DataPropertyName = "HanSD";
-            this.hanSDDataGridViewTextBoxColumn.HeaderText = "HanSD";
-            this.hanSDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hanSDDataGridViewTextBoxColumn.Name = "hanSDDataGridViewTextBoxColumn";
-            // 
-            // tinhTrangDataGridViewTextBoxColumn
-            // 
-            this.tinhTrangDataGridViewTextBoxColumn.DataPropertyName = "TinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.HeaderText = "TinhTrang";
-            this.tinhTrangDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tinhTrangDataGridViewTextBoxColumn.Name = "tinhTrangDataGridViewTextBoxColumn";
-            // 
-            // ngayCNDataGridViewTextBoxColumn
-            // 
-            this.ngayCNDataGridViewTextBoxColumn.DataPropertyName = "NgayCN";
-            this.ngayCNDataGridViewTextBoxColumn.HeaderText = "NgayCN";
-            this.ngayCNDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ngayCNDataGridViewTextBoxColumn.Name = "ngayCNDataGridViewTextBoxColumn";
-            // 
-            // docGiaBindingSource4
-            // 
-            this.docGiaBindingSource4.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
-            // 
             // docGiaBindingSource3
             // 
             this.docGiaBindingSource3.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
@@ -372,10 +375,10 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).EndInit();

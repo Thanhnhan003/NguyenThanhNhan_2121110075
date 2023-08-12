@@ -290,9 +290,10 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.pnBody);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Home_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Home_MouseMove);

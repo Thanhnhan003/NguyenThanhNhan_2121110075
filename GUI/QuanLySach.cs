@@ -413,7 +413,7 @@ namespace NguyenThanhNhan_2121110075.GUI
 
                                     importedBooks.Add(qls);
                                 }
-                                catch (Exception ex)
+                                catch (Exception)
                                 {
                                     // Log the error or handle it as needed
                                 }

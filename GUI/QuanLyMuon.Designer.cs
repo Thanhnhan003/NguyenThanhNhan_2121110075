@@ -34,6 +34,14 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.maPhieuMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maNVMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maDocGiaMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maTaiLieuMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hanTraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qLMuonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnImportExcel = new System.Windows.Forms.Button();
             this.dtNamSB = new System.Windows.Forms.DateTimePicker();
@@ -50,18 +58,10 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.qLMuonBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.maPhieuMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maNVMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maDocGiaMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maTaiLieuMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hanTraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLMuonBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -109,10 +109,64 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridView1.DataSource = this.qLMuonBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(1, 125);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(871, 430);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // maPhieuMuonDataGridViewTextBoxColumn
+            // 
+            this.maPhieuMuonDataGridViewTextBoxColumn.DataPropertyName = "maPhieuMuon";
+            this.maPhieuMuonDataGridViewTextBoxColumn.HeaderText = "MaPhieuMuon";
+            this.maPhieuMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maPhieuMuonDataGridViewTextBoxColumn.Name = "maPhieuMuonDataGridViewTextBoxColumn";
+            // 
+            // maNVMuonDataGridViewTextBoxColumn
+            // 
+            this.maNVMuonDataGridViewTextBoxColumn.DataPropertyName = "maNVMuon";
+            this.maNVMuonDataGridViewTextBoxColumn.HeaderText = "MaNVMuon";
+            this.maNVMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maNVMuonDataGridViewTextBoxColumn.Name = "maNVMuonDataGridViewTextBoxColumn";
+            // 
+            // maDocGiaMuonDataGridViewTextBoxColumn
+            // 
+            this.maDocGiaMuonDataGridViewTextBoxColumn.DataPropertyName = "maDocGiaMuon";
+            this.maDocGiaMuonDataGridViewTextBoxColumn.HeaderText = "MaDocGiaMuon";
+            this.maDocGiaMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maDocGiaMuonDataGridViewTextBoxColumn.Name = "maDocGiaMuonDataGridViewTextBoxColumn";
+            // 
+            // maTaiLieuMuonDataGridViewTextBoxColumn
+            // 
+            this.maTaiLieuMuonDataGridViewTextBoxColumn.DataPropertyName = "maTaiLieuMuon";
+            this.maTaiLieuMuonDataGridViewTextBoxColumn.HeaderText = "MaTaiLieuMuon";
+            this.maTaiLieuMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maTaiLieuMuonDataGridViewTextBoxColumn.Name = "maTaiLieuMuonDataGridViewTextBoxColumn";
+            // 
+            // ngayMuonDataGridViewTextBoxColumn
+            // 
+            this.ngayMuonDataGridViewTextBoxColumn.DataPropertyName = "NgayMuon";
+            this.ngayMuonDataGridViewTextBoxColumn.HeaderText = "NgayMuon";
+            this.ngayMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.ngayMuonDataGridViewTextBoxColumn.Name = "ngayMuonDataGridViewTextBoxColumn";
+            // 
+            // hanTraDataGridViewTextBoxColumn
+            // 
+            this.hanTraDataGridViewTextBoxColumn.DataPropertyName = "HanTra";
+            this.hanTraDataGridViewTextBoxColumn.HeaderText = "HanTra";
+            this.hanTraDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hanTraDataGridViewTextBoxColumn.Name = "hanTraDataGridViewTextBoxColumn";
+            // 
+            // maSachDataGridViewTextBoxColumn
+            // 
+            this.maSachDataGridViewTextBoxColumn.DataPropertyName = "maSach";
+            this.maSachDataGridViewTextBoxColumn.HeaderText = "MaSach";
+            this.maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
+            // 
+            // qLMuonBindingSource
+            // 
+            this.qLMuonBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.QLMuon);
             // 
             // groupBox1
             // 
@@ -299,59 +353,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên Sách";
             // 
-            // qLMuonBindingSource
-            // 
-            this.qLMuonBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.QLMuon);
-            // 
-            // maPhieuMuonDataGridViewTextBoxColumn
-            // 
-            this.maPhieuMuonDataGridViewTextBoxColumn.DataPropertyName = "maPhieuMuon";
-            this.maPhieuMuonDataGridViewTextBoxColumn.HeaderText = "MaPhieuMuon";
-            this.maPhieuMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maPhieuMuonDataGridViewTextBoxColumn.Name = "maPhieuMuonDataGridViewTextBoxColumn";
-            // 
-            // maNVMuonDataGridViewTextBoxColumn
-            // 
-            this.maNVMuonDataGridViewTextBoxColumn.DataPropertyName = "maNVMuon";
-            this.maNVMuonDataGridViewTextBoxColumn.HeaderText = "MaNVMuon";
-            this.maNVMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maNVMuonDataGridViewTextBoxColumn.Name = "maNVMuonDataGridViewTextBoxColumn";
-            // 
-            // maDocGiaMuonDataGridViewTextBoxColumn
-            // 
-            this.maDocGiaMuonDataGridViewTextBoxColumn.DataPropertyName = "maDocGiaMuon";
-            this.maDocGiaMuonDataGridViewTextBoxColumn.HeaderText = "MaDocGiaMuon";
-            this.maDocGiaMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maDocGiaMuonDataGridViewTextBoxColumn.Name = "maDocGiaMuonDataGridViewTextBoxColumn";
-            // 
-            // maTaiLieuMuonDataGridViewTextBoxColumn
-            // 
-            this.maTaiLieuMuonDataGridViewTextBoxColumn.DataPropertyName = "maTaiLieuMuon";
-            this.maTaiLieuMuonDataGridViewTextBoxColumn.HeaderText = "MaTaiLieuMuon";
-            this.maTaiLieuMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maTaiLieuMuonDataGridViewTextBoxColumn.Name = "maTaiLieuMuonDataGridViewTextBoxColumn";
-            // 
-            // ngayMuonDataGridViewTextBoxColumn
-            // 
-            this.ngayMuonDataGridViewTextBoxColumn.DataPropertyName = "NgayMuon";
-            this.ngayMuonDataGridViewTextBoxColumn.HeaderText = "NgayMuon";
-            this.ngayMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ngayMuonDataGridViewTextBoxColumn.Name = "ngayMuonDataGridViewTextBoxColumn";
-            // 
-            // hanTraDataGridViewTextBoxColumn
-            // 
-            this.hanTraDataGridViewTextBoxColumn.DataPropertyName = "HanTra";
-            this.hanTraDataGridViewTextBoxColumn.HeaderText = "HanTra";
-            this.hanTraDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hanTraDataGridViewTextBoxColumn.Name = "hanTraDataGridViewTextBoxColumn";
-            // 
-            // maSachDataGridViewTextBoxColumn
-            // 
-            this.maSachDataGridViewTextBoxColumn.DataPropertyName = "maSach";
-            this.maSachDataGridViewTextBoxColumn.HeaderText = "MaSach";
-            this.maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
-            // 
             // QuanLyMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -367,9 +368,9 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLMuonBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLMuonBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

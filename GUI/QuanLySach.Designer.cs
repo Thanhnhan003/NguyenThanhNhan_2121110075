@@ -55,11 +55,11 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbSearchByTenSach = new System.Windows.Forms.RadioButton();
+            this.rbSearchByMaSach = new System.Windows.Forms.RadioButton();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.qLSachBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLSachBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.rbSearchByMaSach = new System.Windows.Forms.RadioButton();
-            this.rbSearchByTenSach = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,6 +83,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridView1.DataSource = this.qLSachBindingSource2;
             this.dataGridView1.Location = new System.Drawing.Point(2, 122);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(871, 430);
@@ -186,6 +187,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             // cmTheLoai
             // 
+            this.cmTheLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmTheLoai.FormattingEnabled = true;
             this.cmTheLoai.Items.AddRange(new object[] {
             "SachKinhTe",
@@ -339,17 +341,16 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
             // 
-            // tbSearch
+            // rbSearchByTenSach
             // 
-            this.tbSearch.Location = new System.Drawing.Point(250, 44);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(553, 31);
-            this.tbSearch.TabIndex = 1;
-            this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
-            // 
-            // qLSachBindingSource1
-            // 
-            this.qLSachBindingSource1.DataSource = typeof(NguyenThanhNhan_2121110075.QLSach);
+            this.rbSearchByTenSach.AutoSize = true;
+            this.rbSearchByTenSach.Location = new System.Drawing.Point(75, 65);
+            this.rbSearchByTenSach.Name = "rbSearchByTenSach";
+            this.rbSearchByTenSach.Size = new System.Drawing.Size(110, 29);
+            this.rbSearchByTenSach.TabIndex = 3;
+            this.rbSearchByTenSach.TabStop = true;
+            this.rbSearchByTenSach.Text = "Tên Sách";
+            this.rbSearchByTenSach.UseVisualStyleBackColor = true;
             // 
             // rbSearchByMaSach
             // 
@@ -362,16 +363,17 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.rbSearchByMaSach.Text = "Mã Sách";
             this.rbSearchByMaSach.UseVisualStyleBackColor = true;
             // 
-            // rbSearchByTenSach
+            // tbSearch
             // 
-            this.rbSearchByTenSach.AutoSize = true;
-            this.rbSearchByTenSach.Location = new System.Drawing.Point(75, 65);
-            this.rbSearchByTenSach.Name = "rbSearchByTenSach";
-            this.rbSearchByTenSach.Size = new System.Drawing.Size(110, 29);
-            this.rbSearchByTenSach.TabIndex = 3;
-            this.rbSearchByTenSach.TabStop = true;
-            this.rbSearchByTenSach.Text = "Tên Sách";
-            this.rbSearchByTenSach.UseVisualStyleBackColor = true;
+            this.tbSearch.Location = new System.Drawing.Point(250, 44);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(553, 31);
+            this.tbSearch.TabIndex = 1;
+            this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
+            // 
+            // qLSachBindingSource1
+            // 
+            this.qLSachBindingSource1.DataSource = typeof(NguyenThanhNhan_2121110075.QLSach);
             // 
             // QuanLySach
             // 
