@@ -55,15 +55,19 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbSearchByTenSach = new System.Windows.Forms.RadioButton();
-            this.rbSearchByMaSach = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbSearchByMaSach = new System.Windows.Forms.RadioButton();
+            this.rbSearchByTenSach = new System.Windows.Forms.RadioButton();
             this.qLSachBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLSachBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -170,7 +174,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnImportExcel.Name = "btnImportExcel";
             this.btnImportExcel.Size = new System.Drawing.Size(151, 43);
             this.btnImportExcel.TabIndex = 5;
-            this.btnImportExcel.Text = "Inport Excel";
+            this.btnImportExcel.Text = "Import Excel";
             this.btnImportExcel.UseVisualStyleBackColor = false;
             this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
@@ -330,9 +334,8 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.rbSearchByTenSach);
-            this.groupBox2.Controls.Add(this.rbSearchByMaSach);
-            this.groupBox2.Controls.Add(this.tbSearch);
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(2, 1);
             this.groupBox2.Name = "groupBox2";
@@ -341,21 +344,39 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
             // 
-            // rbSearchByTenSach
+            // groupBox4
             // 
-            this.rbSearchByTenSach.AutoSize = true;
-            this.rbSearchByTenSach.Location = new System.Drawing.Point(75, 65);
-            this.rbSearchByTenSach.Name = "rbSearchByTenSach";
-            this.rbSearchByTenSach.Size = new System.Drawing.Size(110, 29);
-            this.rbSearchByTenSach.TabIndex = 3;
-            this.rbSearchByTenSach.TabStop = true;
-            this.rbSearchByTenSach.Text = "Tên Sách";
-            this.rbSearchByTenSach.UseVisualStyleBackColor = true;
+            this.groupBox4.Controls.Add(this.tbSearch);
+            this.groupBox4.Location = new System.Drawing.Point(426, 30);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(439, 85);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Nhập tìm kiếm";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(28, 30);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(405, 31);
+            this.tbSearch.TabIndex = 1;
+            this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbSearchByMaSach);
+            this.groupBox3.Controls.Add(this.rbSearchByTenSach);
+            this.groupBox3.Location = new System.Drawing.Point(10, 30);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(410, 81);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tìm kiếm theo";
             // 
             // rbSearchByMaSach
             // 
             this.rbSearchByMaSach.AutoSize = true;
-            this.rbSearchByMaSach.Location = new System.Drawing.Point(75, 30);
+            this.rbSearchByMaSach.Location = new System.Drawing.Point(69, 30);
             this.rbSearchByMaSach.Name = "rbSearchByMaSach";
             this.rbSearchByMaSach.Size = new System.Drawing.Size(107, 29);
             this.rbSearchByMaSach.TabIndex = 2;
@@ -363,13 +384,16 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.rbSearchByMaSach.Text = "Mã Sách";
             this.rbSearchByMaSach.UseVisualStyleBackColor = true;
             // 
-            // tbSearch
+            // rbSearchByTenSach
             // 
-            this.tbSearch.Location = new System.Drawing.Point(250, 44);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(553, 31);
-            this.tbSearch.TabIndex = 1;
-            this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
+            this.rbSearchByTenSach.AutoSize = true;
+            this.rbSearchByTenSach.Location = new System.Drawing.Point(241, 30);
+            this.rbSearchByTenSach.Name = "rbSearchByTenSach";
+            this.rbSearchByTenSach.Size = new System.Drawing.Size(110, 29);
+            this.rbSearchByTenSach.TabIndex = 3;
+            this.rbSearchByTenSach.TabStop = true;
+            this.rbSearchByTenSach.Text = "Tên Sách";
+            this.rbSearchByTenSach.UseVisualStyleBackColor = true;
             // 
             // qLSachBindingSource1
             // 
@@ -392,7 +416,10 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSachBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -430,5 +457,7 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.Button btnImportExcel;
         private System.Windows.Forms.RadioButton rbSearchByTenSach;
         private System.Windows.Forms.RadioButton rbSearchByMaSach;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

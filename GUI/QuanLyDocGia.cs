@@ -22,6 +22,8 @@ namespace NguyenThanhNhan_2121110075.GUI
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             LoadDataToDataGridView();
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
+            dataGridView1.ReadOnly = true; // Tắt chế độ chỉnh sửa trong DataGridView
+            dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
 
             // Read existing readers data
             List<DocGia> existingReaders = qldgBAL.ReadQuanLyDocGia();
@@ -30,14 +32,19 @@ namespace NguyenThanhNhan_2121110075.GUI
             // Rest of your constructor code...
         }
 
-
+        private void DataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            // Hiển thị thông báo để thông báo cho người dùng rằng chế độ chỉnh sửa đã bị tắt
+            MessageBox.Show("Chế độ chỉnh sửa đã bị tắt cho DataGridView này.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            e.Cancel = true; // Hủy việc chỉnh sửa ô
+        }
         private string GenerateCode(List<DocGia> existingReaders)
-{
-    int nextAvailableCodeNumber = qldgBAL.GetNextAvailableCodeNumber(existingReaders);
-    string codePrefix = "DG";
-    string codeNumber = nextAvailableCodeNumber.ToString("D4");
-    return $"{codePrefix}{codeNumber}";
-}
+        {
+            int nextAvailableCodeNumber = qldgBAL.GetNextAvailableCodeNumber(existingReaders);
+            string codePrefix = "DG";
+            string codeNumber = nextAvailableCodeNumber.ToString("D4");
+            return $"{codePrefix}{codeNumber}";
+        }
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

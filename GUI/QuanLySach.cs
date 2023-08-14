@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.Entity.Infrastructure;
 using System.Globalization;
-
+using System.ComponentModel;
 using NguyenThanhNhan_2121110075.BAL;
 using System.Linq;
 
@@ -27,6 +27,14 @@ namespace NguyenThanhNhan_2121110075.GUI
             LoadDataToDataGridView();
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             currentCodeNumber = qlsBAL.GetNextAvailableCodeNumber(); // Khởi tạo giá trị currentCodeNumber dựa trên dữ liệu có sẵn
+            dataGridView1.ReadOnly = true; // Tắt chế độ chỉnh sửa trong DataGridView
+            dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
+        }
+        private void DataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            // Hiển thị thông báo để thông báo cho người dùng rằng chế độ chỉnh sửa đã bị tắt
+            MessageBox.Show("Chế độ chỉnh sửa đã bị tắt cho DataGridView này.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            e.Cancel = true; // Hủy việc chỉnh sửa ô
         }
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -229,12 +237,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             List<QLSach> existingBooks = qlsBAL.ReadQuanLySach();
             return existingBooks.Any(book => book.TenSach.Equals(tenSach, StringComparison.OrdinalIgnoreCase) && book.MaSach != maSachToExclude);
         }
-
-
-
-
-
-
         private void ClearTextBoxes()
         {
             tbNameS.Text = "";
@@ -266,6 +268,12 @@ namespace NguyenThanhNhan_2121110075.GUI
                             worksheet.Cell(1, 5).Value = "Số Lượng";
                             worksheet.Cell(1, 6).Value = "Thể Loại";
 
+                            // Điều chỉnh độ rộng cột "Năm Xuất Bản" trước
+                            worksheet.Column(4).Width = 15; // Điều chỉnh độ rộng theo nhu cầu
+
+                            // Định dạng ngày tháng cho cột "Năm Xuất Bản"
+                            worksheet.Column(4).Style.DateFormat.Format = "mm/dd/yyyy";
+
                             // Thêm dữ liệu từ DataGridView vào Excel
                             for (int row = 0; row < dataGridView1.Rows.Count; row++)
                             {
@@ -273,8 +281,8 @@ namespace NguyenThanhNhan_2121110075.GUI
                                 worksheet.Cell(row + 2, 1).Value = dgvRow.Cells["maSachDataGridViewTextBoxColumn"].Value.ToString();
                                 worksheet.Cell(row + 2, 2).Value = dgvRow.Cells["tenSachDataGridViewTextBoxColumn"].Value.ToString();
                                 worksheet.Cell(row + 2, 3).Value = dgvRow.Cells["tenTacGiaDataGridViewTextBoxColumn"].Value.ToString();
-                                worksheet.Cell(row + 2, 4).Value = dgvRow.Cells["namXuatBanDataGridViewTextBoxColumn"].Value.ToString();
-                                worksheet.Cell(row + 2, 5).Value = dgvRow.Cells["soLuongDataGridViewTextBoxColumn"].Value.ToString();
+                                worksheet.Cell(row + 2, 4).Value = Convert.ToDateTime(dgvRow.Cells["namXuatBanDataGridViewTextBoxColumn"].Value);
+                                worksheet.Cell(row + 2, 5).Value = Convert.ToInt32(dgvRow.Cells["soLuongDataGridViewTextBoxColumn"].Value);
                                 worksheet.Cell(row + 2, 6).Value = dgvRow.Cells["theLoaiDataGridViewTextBoxColumn"].Value.ToString();
                             }
 
@@ -291,37 +299,9 @@ namespace NguyenThanhNhan_2121110075.GUI
             }
         }
 
-        private void btnInportExcel_Click(object sender, EventArgs e)
-        {
-            // Hiển thị hộp thoại mở tệp để người dùng chọn tệp Excel
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog.FileName;
 
-                // Đọc dữ liệu từ tệp Excel bằng thư viện ClosedXML
-                using (XLWorkbook workbook = new XLWorkbook(filePath))
-                {
-                    IXLWorksheet worksheet = workbook.Worksheet(1); // Chọn worksheet đầu tiên
 
-                    // Lặp qua các dòng từ dòng thứ 2 (bỏ qua tiêu đề)
-                    for (int row = 2; row <= worksheet.LastRowUsed().RowNumber(); row++)
-                    {
-                        // Đọc giá trị từ tệp Excel
-                        string maSach = worksheet.Cell(row, 1).Value.ToString();
-                        string tenSach = worksheet.Cell(row, 2).Value.ToString();
-                        string tenTacGia = worksheet.Cell(row, 3).Value.ToString();
-                        DateTime? namXuatBan = worksheet.Cell(row, 4).GetValue<DateTime?>();
-                        int? soLuong = worksheet.Cell(row, 5).GetValue<int?>();
-                        string theLoai = worksheet.Cell(row, 6).Value.ToString();
-
-                        // Thêm dữ liệu vào DataGridView
-                        dataGridView1.Rows.Add(maSach, tenSach, tenTacGia, namXuatBan, soLuong, theLoai);
-                    }
-                }
-            }
-        }
+      
 
 
         private void TbSearch_TextChanged(object sender, EventArgs e)
@@ -361,7 +341,28 @@ namespace NguyenThanhNhan_2121110075.GUI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // ... Xử lý sự kiện click trên DataGridView ...
+            //if (e.RowIndex >= 0)
+            //{
+            //    DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+            //    // Gán dữ liệu từ dòng được chọn vào biến selectedSach
+            //    selectedSach = new QLSach
+            //    {
+            //        MaSach = selectedRow.Cells["maSachDataGridViewTextBoxColumn"].Value.ToString(),
+            //        TenSach = selectedRow.Cells["tenSachDataGridViewTextBoxColumn"].Value.ToString(),
+            //        TenTacGia = selectedRow.Cells["tenTacGiaDataGridViewTextBoxColumn"].Value.ToString(),
+            //        NamXuatBan = selectedRow.Cells["namXuatBanDataGridViewTextBoxColumn"].Value as DateTime?,
+            //        SoLuong = selectedRow.Cells["soLuongDataGridViewTextBoxColumn"].Value as int?,
+            //        TheLoai = selectedRow.Cells["theLoaiDataGridViewTextBoxColumn"].Value.ToString()
+            //    };
+
+            //    // Hiển thị dữ liệu lên các điều khiển chỉnh sửa
+            //    tbNameS.Text = selectedSach.TenSach;
+            //    tbTacGia.Text = selectedSach.TenTacGia;
+            //    dtNamSB.Value = selectedSach.NamXuatBan ?? DateTime.Now;
+            //    tbSoLuong.Text = selectedSach.SoLuong?.ToString() ?? "0";
+            //    cmTheLoai.SelectedItem = selectedSach.TheLoai;
+            //}
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -370,9 +371,9 @@ namespace NguyenThanhNhan_2121110075.GUI
         }
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
+            // Hiển thị hộp thoại mở tệp để người dùng chọn tệp Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
-
+            openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
@@ -381,64 +382,62 @@ namespace NguyenThanhNhan_2121110075.GUI
                 {
                     using (XLWorkbook workbook = new XLWorkbook(filePath))
                     {
-                        IXLWorksheet worksheet = workbook.Worksheet(1);
+                        IXLWorksheet worksheet = workbook.Worksheet(1); // Chọn worksheet đầu tiên
 
-                        using (var dbContext = new saleEntities())
+                        // Đọc tiêu đề cột từ hàng đầu tiên (hàng tiêu đề)
+                        var headerRow = worksheet.Row(1);
+                        string maSachColumnHeader = headerRow.Cell(1).Value.ToString();
+                        string tenSachColumnHeader = headerRow.Cell(2).Value.ToString();
+                        string tenTacGiaColumnHeader = headerRow.Cell(3).Value.ToString();
+                        string namXuatBanColumnHeader = headerRow.Cell(4).Value.ToString();
+                        string soLuongColumnHeader = headerRow.Cell(5).Value.ToString();
+                        string theLoaiColumnHeader = headerRow.Cell(6).Value.ToString();
+
+                        List<QLSach> existingBooks = qlsBAL.ReadQuanLySach(); // Đọc danh sách sách hiện tại
+
+                        // Lặp qua các dòng từ dòng thứ 2 (bỏ qua tiêu đề)
+                        for (int row = 2; row <= worksheet.LastRowUsed().RowNumber(); row++)
                         {
-                            List<QLSach> importedBooks = new List<QLSach>();
+                            // Đọc giá trị từ tệp Excel
+                            string maSach = worksheet.Cell(row, 1).Value.ToString();
+                            string tenSach = worksheet.Cell(row, 2).Value.ToString();
+                            string tenTacGia = worksheet.Cell(row, 3).Value.ToString();
+                            DateTime? namXuatBan = worksheet.Cell(row, 4).GetValue<DateTime?>();
+                            int? soLuong = worksheet.Cell(row, 5).GetValue<int?>();
+                            string theLoai = worksheet.Cell(row, 6).Value.ToString();
 
-                            foreach (IXLRow row in worksheet.RowsUsed().Skip(1))
+                            // Kiểm tra xem mã sách đã tồn tại trong danh sách sách hiện tại chưa
+                            if (!existingBooks.Any(book => book.MaSach == maSach))
                             {
-                                try
+                                // Thêm dữ liệu vào cơ sở dữ liệu
+                                QLSach qls = new QLSach
                                 {
-                                    // Read data from Excel row
-                                    string tenSach = row.Cell(1).Value.ToString();
-                                    string tenTacGia = row.Cell(2).Value.ToString();
-                                    DateTime? namXuatBan = row.Cell(3).GetValue<DateTime?>();
-                                    int? soLuong = row.Cell(4).GetValue<int?>();
-                                    string theLoai = row.Cell(5).Value.ToString();
+                                    MaSach = maSach,
+                                    TenSach = tenSach,
+                                    TenTacGia = tenTacGia,
+                                    NamXuatBan = namXuatBan,
+                                    SoLuong = soLuong,
+                                    TheLoai = theLoai
+                                };
 
-                                    // Generate a new book code using the GenerateCode method
-                                    string maSach = GenerateCode(qlsBAL.ReadQuanLySach());
+                                qlsBAL.AddQuanLySach(qls); // Thêm dữ liệu vào cơ sở dữ liệu
 
-                                    QLSach qls = new QLSach
-                                    {
-                                        MaSach = maSach,
-                                        TenSach = tenSach,
-                                        TenTacGia = tenTacGia,
-                                        NamXuatBan = namXuatBan,
-                                        SoLuong = soLuong,
-                                        TheLoai = theLoai
-                                    };
-
-                                    importedBooks.Add(qls);
-                                }
-                                catch (Exception)
-                                {
-                                    // Log the error or handle it as needed
-                                }
-                            }
-
-                            try
-                            {
-                                dbContext.QLSaches.AddRange(importedBooks);
-                                dbContext.SaveChanges();
-                                MessageBox.Show("Data imported from Excel and inserted into the database successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                LoadDataToDataGridView(); // Refresh the DataGridView
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show($"Error inserting data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                // Cập nhật DataGridView
+                                LoadDataToDataGridView();
                             }
                         }
+
+                        MessageBox.Show("Import dữ liệu từ Excel thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show($"An error occurred while processing the Excel file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("File excel không hợp lệ.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
+
+
 
     }
 }

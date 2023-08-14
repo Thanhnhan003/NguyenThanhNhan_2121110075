@@ -24,8 +24,15 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             LoadDataToDataGridView();
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
+            dataGridView1.ReadOnly = true; // Tắt chế độ chỉnh sửa trong DataGridView
+            dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
         }
-
+        private void DataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            // Hiển thị thông báo để thông báo cho người dùng rằng chế độ chỉnh sửa đã bị tắt
+            MessageBox.Show("Chế độ chỉnh sửa đã bị tắt cho DataGridView này.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            e.Cancel = true; // Hủy việc chỉnh sửa ô
+        }
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
@@ -300,6 +307,11 @@ namespace NguyenThanhNhan_2121110075.GUI
             {
                 MessageBox.Show("Vui lòng chọn tài khoản để sửa.", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

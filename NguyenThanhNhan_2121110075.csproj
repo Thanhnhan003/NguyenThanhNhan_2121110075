@@ -372,6 +372,7 @@
     <None Include="Image\icons8-user-50.png" />
     <None Include="Image\icons8-password-50.png" />
     <None Include="Image\icons8-close-30.png" />
+    <None Include="Image\banner.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

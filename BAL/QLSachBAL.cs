@@ -130,7 +130,7 @@ namespace NguyenThanhNhan_2121110075.BAL
 
             return smallestDeletedCodeNumber;
         }
-        
+      
 
 
     }
