@@ -179,7 +179,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.cbbDocGiaMuon.Name = "cbbDocGiaMuon";
             this.cbbDocGiaMuon.Size = new System.Drawing.Size(260, 33);
             this.cbbDocGiaMuon.TabIndex = 6;
-            this.cbbDocGiaMuon.SelectedIndexChanged += new System.EventHandler(this.cbbDocGiaMuon_SelectedIndexChanged);
             // 
             // cbbMaSachMuon
             // 
@@ -189,7 +188,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.cbbMaSachMuon.Name = "cbbMaSachMuon";
             this.cbbMaSachMuon.Size = new System.Drawing.Size(260, 33);
             this.cbbMaSachMuon.TabIndex = 6;
-            this.cbbMaSachMuon.SelectedIndexChanged += new System.EventHandler(this.cbbMaSachMuon_SelectedIndexChanged);
             // 
             // dateHanTra
             // 

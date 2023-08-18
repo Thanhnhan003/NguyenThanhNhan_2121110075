@@ -39,17 +39,17 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.qLTraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maPhieuTraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maPhieuMuonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayTraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qLTraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLTraBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -100,6 +100,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -112,6 +113,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -124,6 +126,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label5
             // 
@@ -164,6 +167,32 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(871, 430);
             this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // maPhieuTraDataGridViewTextBoxColumn
+            // 
+            this.maPhieuTraDataGridViewTextBoxColumn.DataPropertyName = "maPhieuTra";
+            this.maPhieuTraDataGridViewTextBoxColumn.HeaderText = "maPhieuTra";
+            this.maPhieuTraDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maPhieuTraDataGridViewTextBoxColumn.Name = "maPhieuTraDataGridViewTextBoxColumn";
+            // 
+            // maPhieuMuonDataGridViewTextBoxColumn
+            // 
+            this.maPhieuMuonDataGridViewTextBoxColumn.DataPropertyName = "maPhieuMuon";
+            this.maPhieuMuonDataGridViewTextBoxColumn.HeaderText = "maPhieuMuon";
+            this.maPhieuMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.maPhieuMuonDataGridViewTextBoxColumn.Name = "maPhieuMuonDataGridViewTextBoxColumn";
+            // 
+            // ngayTraDataGridViewTextBoxColumn
+            // 
+            this.ngayTraDataGridViewTextBoxColumn.DataPropertyName = "NgayTra";
+            this.ngayTraDataGridViewTextBoxColumn.HeaderText = "NgayTra";
+            this.ngayTraDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.ngayTraDataGridViewTextBoxColumn.Name = "ngayTraDataGridViewTextBoxColumn";
+            // 
+            // qLTraBindingSource
+            // 
+            this.qLTraBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.QLTra);
             // 
             // groupBox2
             // 
@@ -194,31 +223,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm mã";
             // 
-            // qLTraBindingSource
-            // 
-            this.qLTraBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.QLTra);
-            // 
-            // maPhieuTraDataGridViewTextBoxColumn
-            // 
-            this.maPhieuTraDataGridViewTextBoxColumn.DataPropertyName = "maPhieuTra";
-            this.maPhieuTraDataGridViewTextBoxColumn.HeaderText = "maPhieuTra";
-            this.maPhieuTraDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maPhieuTraDataGridViewTextBoxColumn.Name = "maPhieuTraDataGridViewTextBoxColumn";
-            // 
-            // maPhieuMuonDataGridViewTextBoxColumn
-            // 
-            this.maPhieuMuonDataGridViewTextBoxColumn.DataPropertyName = "maPhieuMuon";
-            this.maPhieuMuonDataGridViewTextBoxColumn.HeaderText = "maPhieuMuon";
-            this.maPhieuMuonDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maPhieuMuonDataGridViewTextBoxColumn.Name = "maPhieuMuonDataGridViewTextBoxColumn";
-            // 
-            // ngayTraDataGridViewTextBoxColumn
-            // 
-            this.ngayTraDataGridViewTextBoxColumn.DataPropertyName = "NgayTra";
-            this.ngayTraDataGridViewTextBoxColumn.HeaderText = "NgayTra";
-            this.ngayTraDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ngayTraDataGridViewTextBoxColumn.Name = "ngayTraDataGridViewTextBoxColumn";
-            // 
             // QuanLyTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,13 +234,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.Controls.Add(this.groupBox2);
             this.Name = "QuanLyTra";
             this.Text = "QuanLyTra";
-            this.Load += new System.EventHandler(this.QuanLyTra_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLTraBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLTraBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

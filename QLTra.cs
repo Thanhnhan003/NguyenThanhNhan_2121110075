@@ -17,7 +17,6 @@ namespace NguyenThanhNhan_2121110075
         public string maPhieuTra { get; set; }
         public string maPhieuMuon { get; set; }
         public Nullable<System.DateTime> NgayTra { get; set; }
-    
         public virtual QLMuon QLMuon { get; set; }
     }
 }

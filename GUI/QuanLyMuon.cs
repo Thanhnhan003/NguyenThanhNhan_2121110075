@@ -14,7 +14,6 @@ namespace NguyenThanhNhan_2121110075.GUI
     public partial class QuanLyMuon : Form
     {
         private QLMuonBAL qlmbal = new QLMuonBAL();
-        private List<DocGia> existingReaders;
         public QuanLyMuon()
         {
             InitializeComponent();
@@ -101,16 +100,8 @@ namespace NguyenThanhNhan_2121110075.GUI
             dataGridView1.DataSource = lstqlmuon;
         }
 
-        private void cbbDocGiaMuon_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedMaDocGia = cbbDocGiaMuon.SelectedItem as string;
 
-        }
-
-        private void cbbMaSachMuon_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedMaSach = cbbMaSachMuon.SelectedItem as string;
-        }
+    
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
