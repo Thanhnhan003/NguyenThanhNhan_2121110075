@@ -41,6 +41,7 @@ namespace NguyenThanhNhan_2121110075.DAL
                 existingDocGia.HanSD = docGia.HanSD;
                 existingDocGia.TinhTrang = docGia.TinhTrang;
                 existingDocGia.NgayCN = docGia.NgayCN;
+                existingDocGia.HinhAnh = docGia.HinhAnh;
                 _context.SaveChanges();
             }
         }

@@ -35,25 +35,25 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.lbName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnBody = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pnTop = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnLeft = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.btnTra = new System.Windows.Forms.Button();
             this.btnMuon = new System.Windows.Forms.Button();
             this.btnDocGia = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnPanelSach = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.taiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnTop.SuspendLayout();
-            this.pnLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,6 +112,16 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.pnBody.Size = new System.Drawing.Size(1295, 555);
             this.pnBody.TabIndex = 21;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.banner;
+            this.pictureBox3.Location = new System.Drawing.Point(1, 63);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(1000, 563);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -138,6 +148,27 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.pnTop.Size = new System.Drawing.Size(1495, 100);
             this.pnTop.TabIndex = 22;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.icons8_user_5;
+            this.pictureBox1.Location = new System.Drawing.Point(998, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(77, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.logo1;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(200, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // pnLeft
             // 
             this.pnLeft.BackColor = System.Drawing.Color.Silver;
@@ -152,18 +183,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Size = new System.Drawing.Size(200, 555);
             this.pnLeft.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(10, 28);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 28);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Danh Mục";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTaiKhoan
             // 
@@ -203,6 +222,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnTra.Text = "Quản Lý Trả";
             this.btnTra.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTra.UseVisualStyleBackColor = false;
+            this.btnTra.Click += new System.EventHandler(this.btnTra_Click);
             // 
             // btnMuon
             // 
@@ -244,6 +264,18 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnDocGia.UseVisualStyleBackColor = false;
             this.btnDocGia.Click += new System.EventHandler(this.btnDocGia_Click);
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(10, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 28);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Danh Mục";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnPanelSach
             // 
             this.btnPanelSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(99)))), ((int)(((byte)(25)))));
@@ -264,37 +296,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnPanelSach.UseVisualStyleBackColor = false;
             this.btnPanelSach.Click += new System.EventHandler(this.btnPanelSach_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.icons8_user_5;
-            this.pictureBox1.Location = new System.Drawing.Point(998, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(77, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.logo1;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 100);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::NguyenThanhNhan_2121110075.Properties.Resources.banner;
-            this.pictureBox3.Location = new System.Drawing.Point(1, 63);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1000, 563);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -313,12 +314,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Home_MouseUp);
             this.pnBody.ResumeLayout(false);
             this.pnBody.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();
-            this.pnLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pnLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).EndInit();
             this.ResumeLayout(false);
 

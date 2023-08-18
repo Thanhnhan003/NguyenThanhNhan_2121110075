@@ -1,55 +1,96 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NguyenThanhNhan_2121110075.DAL;
 
-namespace NguyenThanhNhan_2121110075.DAL
+namespace NguyenThanhNhan_2121110075.BAL
 {
-    public class QLMuonDAL
+    public class QLMuonBAL
     {
-        private saleEntities _context;
+        private QLMuonDAL _qlMuonDAL;
 
-        public QLMuonDAL()
+        public QLMuonBAL()
         {
-            _context = new saleEntities();
+            _qlMuonDAL = new QLMuonDAL();
         }
 
         public List<QLMuon> ReadQuanLyMuon()
         {
-            return _context.QLMuons.ToList();
+            return _qlMuonDAL.ReadQuanLyMuon();
         }
 
-        public void AddMuon(QLMuon qlm)
+        public List<string> ReadDocGiaIDs()
         {
-            _context.QLMuons.Add(qlm);
-            _context.SaveChanges();
+            return _qlMuonDAL.ReadDocGiaIDs();
         }
 
-        public void RemoveMuon(QLMuon qlm)
+        public List<string> ReadQLSachIDs()
         {
-            _context.QLMuons.Remove(qlm);
-            _context.SaveChanges();
+            return _qlMuonDAL.ReadQLSachIDs();
         }
 
-        public void UpdateMuon(QLMuon qlm)
+        public void AddQuanLyMuon(QLMuon muon)
         {
-            QLMuon existingMuon = _context.QLMuons.Find(qlm.maPhieuMuon);
-            if (existingMuon != null)
-            {
-                existingMuon.maNVMuon = qlm.maNVMuon;
-                existingMuon.maDocGiaMuon = qlm.maDocGiaMuon;
-                existingMuon.maTaiLieuMuon = qlm.maTaiLieuMuon;
-                existingMuon.NgayMuon = qlm.NgayMuon;
-                existingMuon.HanTra = qlm.HanTra;
-                existingMuon.maSach = qlm.maSach;
-                _context.SaveChanges();
-            }
+            _qlMuonDAL.AddQuanLyMuon(muon);
+        }
+
+        public void DeleteQuanLyMuon(QLMuon muon)
+        {
+            _qlMuonDAL.RemoveQuanLyMuon(muon);
+        }
+
+        public void UpdateMuon(QLMuon muon)
+        {
+            _qlMuonDAL.UpdateMuon(muon);
         }
 
         public QLMuon GetQuanLyMuonByMaPhieuMuon(string maPhieuMuon)
         {
-            return _context.QLMuons.FirstOrDefault(m => m.maPhieuMuon == maPhieuMuon);
+            return _qlMuonDAL.GetQuanLyMuonByMaPhieuMuon(maPhieuMuon);
+        }
+
+        public string GenerateCode()
+        {
+            int nextAvailableCodeNumber = GetNextAvailableCodeNumber();
+            string codePrefix = "PM";
+            string codeNumber = nextAvailableCodeNumber.ToString("D4");
+            return $"{codePrefix}{codeNumber}";
+        }
+
+        private int GetNextAvailableCodeNumber()
+        {
+            List<int> existingCodeNumbers = _qlMuonDAL.ReadQuanLyMuonCodeNumbers();
+
+            int maxCodeNumber = existingCodeNumbers.Max();
+
+            int smallestDeletedCodeNumber = GetSmallestDeletedCodeNumber(existingCodeNumbers);
+
+            if (smallestDeletedCodeNumber > 0 && smallestDeletedCodeNumber < maxCodeNumber)
+            {
+                return smallestDeletedCodeNumber;
+            }
+
+            return maxCodeNumber + 1;
+        }
+
+        private int GetSmallestDeletedCodeNumber(List<int> existingCodeNumbers)
+        {
+            existingCodeNumbers.Sort();
+
+            int smallestDeletedCodeNumber = 1;
+            foreach (int codeNumber in existingCodeNumbers)
+            {
+                if (codeNumber == smallestDeletedCodeNumber)
+                {
+                    smallestDeletedCodeNumber++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return smallestDeletedCodeNumber;
         }
     }
 }

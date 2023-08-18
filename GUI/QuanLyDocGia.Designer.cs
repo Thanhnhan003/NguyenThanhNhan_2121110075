@@ -39,15 +39,16 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.hanSDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tinhTrangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayCNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docGiaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.hinhAnhDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.docGiaBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddIMG = new System.Windows.Forms.Button();
+            this.pbIMG = new System.Windows.Forms.PictureBox();
             this.dateNC = new System.Windows.Forms.DateTimePicker();
-            this.btnImportExcel = new System.Windows.Forms.Button();
             this.dateNCN = new System.Windows.Forms.DateTimePicker();
             this.dateHSD = new System.Windows.Forms.DateTimePicker();
             this.cmTT = new System.Windows.Forms.ComboBox();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnExExcel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbNameDG = new System.Windows.Forms.TextBox();
@@ -57,22 +58,30 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.docGiaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.docGiaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.docGiaBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource6)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIMG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource5)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbSearch);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(7, 3);
             this.groupBox2.Name = "groupBox2";
@@ -99,15 +108,17 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.ngayCapDataGridViewTextBoxColumn,
             this.hanSDDataGridViewTextBoxColumn,
             this.tinhTrangDataGridViewTextBoxColumn,
-            this.ngayCNDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.docGiaBindingSource4;
+            this.ngayCNDataGridViewTextBoxColumn,
+            this.hinhAnhDataGridViewImageColumn});
+            this.dataGridView1.DataSource = this.docGiaBindingSource6;
             this.dataGridView1.Location = new System.Drawing.Point(7, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.RowTemplate.Height = 70;
             this.dataGridView1.Size = new System.Drawing.Size(871, 430);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -115,6 +126,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dataGridViewTextBoxColumn1.HeaderText = "MaDocGia";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // tenDocGiaDataGridViewTextBoxColumn
             // 
@@ -126,7 +138,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             // ngayCapDataGridViewTextBoxColumn
             // 
             this.ngayCapDataGridViewTextBoxColumn.DataPropertyName = "NgayCap";
-            this.ngayCapDataGridViewTextBoxColumn.HeaderText = "NgayCapSD";
+            this.ngayCapDataGridViewTextBoxColumn.HeaderText = "NgayCap";
             this.ngayCapDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.ngayCapDataGridViewTextBoxColumn.Name = "ngayCapDataGridViewTextBoxColumn";
             // 
@@ -151,20 +163,28 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.ngayCNDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.ngayCNDataGridViewTextBoxColumn.Name = "ngayCNDataGridViewTextBoxColumn";
             // 
-            // docGiaBindingSource4
+            // hinhAnhDataGridViewImageColumn
             // 
-            this.docGiaBindingSource4.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            this.hinhAnhDataGridViewImageColumn.DataPropertyName = "HinhAnh";
+            this.hinhAnhDataGridViewImageColumn.HeaderText = "HinhAnh";
+            this.hinhAnhDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.hinhAnhDataGridViewImageColumn.MinimumWidth = 6;
+            this.hinhAnhDataGridViewImageColumn.Name = "hinhAnhDataGridViewImageColumn";
+            // 
+            // docGiaBindingSource6
+            // 
+            this.docGiaBindingSource6.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
             // 
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.btnAddIMG);
+            this.groupBox1.Controls.Add(this.pbIMG);
             this.groupBox1.Controls.Add(this.dateNC);
-            this.groupBox1.Controls.Add(this.btnImportExcel);
             this.groupBox1.Controls.Add(this.dateNCN);
             this.groupBox1.Controls.Add(this.dateHSD);
             this.groupBox1.Controls.Add(this.cmTT);
             this.groupBox1.Controls.Add(this.btnEdit);
-            this.groupBox1.Controls.Add(this.btnExExcel);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.tbNameDG);
@@ -181,6 +201,27 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // btnAddIMG
+            // 
+            this.btnAddIMG.Location = new System.Drawing.Point(251, 380);
+            this.btnAddIMG.Name = "btnAddIMG";
+            this.btnAddIMG.Size = new System.Drawing.Size(107, 44);
+            this.btnAddIMG.TabIndex = 8;
+            this.btnAddIMG.Text = "Thêm ảnh";
+            this.btnAddIMG.UseVisualStyleBackColor = true;
+            this.btnAddIMG.Click += new System.EventHandler(this.btnAddIMG_Click);
+            // 
+            // pbIMG
+            // 
+            this.pbIMG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbIMG.Location = new System.Drawing.Point(72, 327);
+            this.pbIMG.Name = "pbIMG";
+            this.pbIMG.Size = new System.Drawing.Size(100, 126);
+            this.pbIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbIMG.TabIndex = 7;
+            this.pbIMG.TabStop = false;
+            this.pbIMG.Click += new System.EventHandler(this.pbIMG_Click);
+            // 
             // dateNC
             // 
             this.dateNC.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,17 +231,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dateNC.Name = "dateNC";
             this.dateNC.Size = new System.Drawing.Size(257, 31);
             this.dateNC.TabIndex = 6;
-            // 
-            // btnImportExcel
-            // 
-            this.btnImportExcel.BackColor = System.Drawing.Color.Blue;
-            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
-            this.btnImportExcel.Location = new System.Drawing.Point(251, 499);
-            this.btnImportExcel.Name = "btnImportExcel";
-            this.btnImportExcel.Size = new System.Drawing.Size(151, 43);
-            this.btnImportExcel.TabIndex = 5;
-            this.btnImportExcel.Text = "Inport Excel";
-            this.btnImportExcel.UseVisualStyleBackColor = false;
             // 
             // dateNCN
             // 
@@ -240,7 +270,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnEdit.AutoSize = true;
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(301, 418);
+            this.btnEdit.Location = new System.Drawing.Point(295, 497);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(104, 43);
             this.btnEdit.TabIndex = 2;
@@ -248,24 +278,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnExExcel
-            // 
-            this.btnExExcel.AutoSize = true;
-            this.btnExExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnExExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExExcel.Location = new System.Drawing.Point(10, 499);
-            this.btnExExcel.Name = "btnExExcel";
-            this.btnExExcel.Size = new System.Drawing.Size(149, 43);
-            this.btnExExcel.TabIndex = 2;
-            this.btnExExcel.Text = "Export excel";
-            this.btnExExcel.UseVisualStyleBackColor = false;
-            // 
             // btnDelete
             // 
             this.btnDelete.AutoSize = true;
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(159, 418);
+            this.btnDelete.Location = new System.Drawing.Point(146, 497);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 43);
             this.btnDelete.TabIndex = 2;
@@ -278,7 +296,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnAdd.AutoSize = true;
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(10, 418);
+            this.btnAdd.Location = new System.Drawing.Point(10, 497);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(104, 43);
             this.btnAdd.TabIndex = 2;
@@ -348,6 +366,14 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên Độc Giả";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // docGiaBindingSource4
+            // 
+            this.docGiaBindingSource4.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            // 
             // docGiaBindingSource3
             // 
             this.docGiaBindingSource3.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
@@ -359,6 +385,21 @@ namespace NguyenThanhNhan_2121110075.GUI
             // docGiaBindingSource
             // 
             this.docGiaBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            // 
+            // docGiaBindingSource5
+            // 
+            this.docGiaBindingSource5.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label1.Location = new System.Drawing.Point(16, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tìm mã độc giả";
             // 
             // QuanLyDocGia
             // 
@@ -375,13 +416,16 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource6)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIMG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,11 +438,9 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.BindingSource docGiaBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dateNC;
-        private System.Windows.Forms.Button btnImportExcel;
         private System.Windows.Forms.DateTimePicker dateHSD;
         private System.Windows.Forms.ComboBox cmTT;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnExExcel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbNameDG;
@@ -413,11 +455,18 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn maDocGiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource docGiaBindingSource3;
         private System.Windows.Forms.BindingSource docGiaBindingSource4;
+        private System.Windows.Forms.BindingSource docGiaBindingSource6;
+        private System.Windows.Forms.Button btnAddIMG;
+        private System.Windows.Forms.PictureBox pbIMG;
+        private System.Windows.Forms.BindingSource docGiaBindingSource5;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenDocGiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayCapDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hanSDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tinhTrangDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayCNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn hinhAnhDataGridViewImageColumn;
+        private System.Windows.Forms.Label label1;
     }
 }

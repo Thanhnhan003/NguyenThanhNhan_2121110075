@@ -15,13 +15,9 @@ namespace NguyenThanhNhan_2121110075
     public partial class QLTra
     {
         public string maPhieuTra { get; set; }
-        public string maNVTra { get; set; }
         public string maPhieuMuon { get; set; }
         public Nullable<System.DateTime> NgayTra { get; set; }
-        public string maSach { get; set; }
     
         public virtual QLMuon QLMuon { get; set; }
-        public virtual QLSach QLSach { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

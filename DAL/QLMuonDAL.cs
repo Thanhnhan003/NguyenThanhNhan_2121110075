@@ -1,45 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NguyenThanhNhan_2121110075.DAL;
 
-namespace NguyenThanhNhan_2121110075.BAL
+namespace NguyenThanhNhan_2121110075.DAL
 {
-    public class QLMuonBAL
+    public class QLMuonDAL
     {
-        private QLMuonDAL _qlMuonDAL;
+        private saleEntities _context;
 
-        public QLMuonBAL()
+        public QLMuonDAL()
         {
-            _qlMuonDAL = new QLMuonDAL();
+            _context = new saleEntities();
         }
 
         public List<QLMuon> ReadQuanLyMuon()
         {
-            List<QLMuon> lstMuon = _qlMuonDAL.ReadQuanLyMuon();
-            return lstMuon;
+            return _context.QLMuons.ToList();
+        }
+        public List<string> ReadDocGiaIDs()
+        {
+            return _context.DocGias.Select(d => d.MaDocGia).ToList();
+        }
+        public List<string> ReadQLSachIDs()
+        {
+            return _context.QLSaches.Select(d => d.MaSach).ToList();
         }
 
-        public void AddQuanLyMuon(QLMuon qlm)
+
+        public void AddQuanLyMuon(QLMuon muon)
         {
-            _qlMuonDAL.AddMuon(qlm);
+            _context.QLMuons.Add(muon);
+            _context.SaveChanges();
         }
 
-        public void DeleteQuanLyMuon(QLMuon qlm)
+        public void RemoveQuanLyMuon(QLMuon muon)
         {
-            _qlMuonDAL.RemoveMuon(qlm);
+            _context.QLMuons.Remove(muon);
+            _context.SaveChanges();
         }
 
-        public void UpdateQuanLyMuon(QLMuon qlm)
+        public void UpdateMuon(QLMuon muon)
         {
-            _qlMuonDAL.UpdateMuon(qlm);
+            QLMuon existingMuon = _context.QLMuons.Find(muon.maPhieuMuon);
+            if (existingMuon != null)
+            {
+                existingMuon.maTaiLieuMuon = muon.maTaiLieuMuon;
+                existingMuon.NgayMuon = muon.NgayMuon;
+                existingMuon.HanTra = muon.HanTra;
+                _context.SaveChanges();
+            }
         }
 
         public QLMuon GetQuanLyMuonByMaPhieuMuon(string maPhieuMuon)
         {
-            return _qlMuonDAL.GetQuanLyMuonByMaPhieuMuon(maPhieuMuon);
+            return _context.QLMuons.FirstOrDefault(m => m.maPhieuMuon == maPhieuMuon);
         }
+
+        public List<int> ReadQuanLyMuonCodeNumbers()
+        {
+            return _context.QLMuons.Select(m => m.maPhieuMuon.Substring(2)).Select(int.Parse).ToList();
+        }
+
+
     }
 }
+

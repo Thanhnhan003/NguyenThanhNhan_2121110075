@@ -42,10 +42,8 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.soDienThoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnImportExcel = new System.Windows.Forms.Button();
             this.cbbChucVu = new System.Windows.Forms.ComboBox();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnExExcel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -163,10 +161,8 @@ namespace NguyenThanhNhan_2121110075.GUI
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox1.Controls.Add(this.btnImportExcel);
             this.groupBox1.Controls.Add(this.cbbChucVu);
             this.groupBox1.Controls.Add(this.btnEdit);
-            this.groupBox1.Controls.Add(this.btnExExcel);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.tbEmail);
@@ -190,18 +186,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
-            // btnImportExcel
-            // 
-            this.btnImportExcel.BackColor = System.Drawing.Color.Blue;
-            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
-            this.btnImportExcel.Location = new System.Drawing.Point(251, 499);
-            this.btnImportExcel.Name = "btnImportExcel";
-            this.btnImportExcel.Size = new System.Drawing.Size(151, 43);
-            this.btnImportExcel.TabIndex = 5;
-            this.btnImportExcel.Text = "Inport Excel";
-            this.btnImportExcel.UseVisualStyleBackColor = false;
-            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
-            // 
             // cbbChucVu
             // 
             this.cbbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -220,7 +204,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnEdit.AutoSize = true;
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(301, 418);
+            this.btnEdit.Location = new System.Drawing.Point(287, 498);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(104, 43);
             this.btnEdit.TabIndex = 2;
@@ -228,24 +212,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
-            // btnExExcel
-            // 
-            this.btnExExcel.AutoSize = true;
-            this.btnExExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnExExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExExcel.Location = new System.Drawing.Point(10, 499);
-            this.btnExExcel.Name = "btnExExcel";
-            this.btnExExcel.Size = new System.Drawing.Size(149, 43);
-            this.btnExExcel.TabIndex = 2;
-            this.btnExExcel.Text = "Export excel";
-            this.btnExExcel.UseVisualStyleBackColor = false;
-            // 
             // btnDelete
             // 
             this.btnDelete.AutoSize = true;
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(159, 418);
+            this.btnDelete.Location = new System.Drawing.Point(145, 498);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 43);
             this.btnDelete.TabIndex = 2;
@@ -258,7 +230,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.btnAdd.AutoSize = true;
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(10, 418);
+            this.btnAdd.Location = new System.Drawing.Point(7, 498);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(104, 43);
             this.btnAdd.TabIndex = 2;
@@ -421,10 +393,8 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn soDienThoaiDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource taiKhoanBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnImportExcel;
         private System.Windows.Forms.ComboBox cbbChucVu;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnExExcel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbEmail;

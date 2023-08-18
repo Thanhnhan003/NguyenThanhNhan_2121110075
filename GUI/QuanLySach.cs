@@ -25,7 +25,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             LoadDataToDataGridView();
-            dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             currentCodeNumber = qlsBAL.GetNextAvailableCodeNumber(); // Khởi tạo giá trị currentCodeNumber dựa trên dữ liệu có sẵn
             dataGridView1.ReadOnly = true; // Tắt chế độ chỉnh sửa trong DataGridView
             dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
@@ -37,32 +36,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             e.Cancel = true; // Hủy việc chỉnh sửa ô
         }
 
-        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-                // Gán dữ liệu từ dòng được chọn vào biến selectedSach
-                selectedSach = new QLSach
-                {
-                    MaSach = selectedRow.Cells["maSachDataGridViewTextBoxColumn"].Value.ToString(),
-                    TenSach = selectedRow.Cells["tenSachDataGridViewTextBoxColumn"].Value.ToString(),
-                    TenTacGia = selectedRow.Cells["tenTacGiaDataGridViewTextBoxColumn"].Value.ToString(),
-                    NamXuatBan = selectedRow.Cells["namXuatBanDataGridViewTextBoxColumn"].Value as DateTime?,
-                    SoLuong = selectedRow.Cells["soLuongDataGridViewTextBoxColumn"].Value as int?,
-                    TheLoai = selectedRow.Cells["theLoaiDataGridViewTextBoxColumn"].Value.ToString()
-                };
-
-                // Hiển thị dữ liệu lên các điều khiển chỉnh sửa
-                tbNameS.Text = selectedSach.TenSach;
-                tbTacGia.Text = selectedSach.TenTacGia;
-                dtNamSB.Value = selectedSach.NamXuatBan ?? DateTime.Now;
-                tbSoLuong.Text = selectedSach.SoLuong?.ToString() ?? "0";
-                cmTheLoai.SelectedItem = selectedSach.TheLoai;
-            }
-        }
-
+        
 
 
 
@@ -130,7 +104,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             {
                 qlsBAL.AddQuanLySach(qls);
                 MessageBox.Show("Thêm sách thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                ClearTextBoxes();
                 LoadDataToDataGridView();
             }
             catch (DbUpdateException ex)
@@ -298,12 +272,6 @@ namespace NguyenThanhNhan_2121110075.GUI
                 }
             }
         }
-
-
-
-      
-
-
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
             string searchText = tbSearch.Text.Trim().ToLower(); // Chuyển về chữ thường và loại bỏ khoảng trắng
@@ -341,28 +309,28 @@ namespace NguyenThanhNhan_2121110075.GUI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex >= 0)
-            //{
-            //    DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
 
-            //    // Gán dữ liệu từ dòng được chọn vào biến selectedSach
-            //    selectedSach = new QLSach
-            //    {
-            //        MaSach = selectedRow.Cells["maSachDataGridViewTextBoxColumn"].Value.ToString(),
-            //        TenSach = selectedRow.Cells["tenSachDataGridViewTextBoxColumn"].Value.ToString(),
-            //        TenTacGia = selectedRow.Cells["tenTacGiaDataGridViewTextBoxColumn"].Value.ToString(),
-            //        NamXuatBan = selectedRow.Cells["namXuatBanDataGridViewTextBoxColumn"].Value as DateTime?,
-            //        SoLuong = selectedRow.Cells["soLuongDataGridViewTextBoxColumn"].Value as int?,
-            //        TheLoai = selectedRow.Cells["theLoaiDataGridViewTextBoxColumn"].Value.ToString()
-            //    };
+                // Gán dữ liệu từ dòng được chọn vào biến selectedSach
+                selectedSach = new QLSach
+                {
+                    MaSach = selectedRow.Cells["maSachDataGridViewTextBoxColumn"].Value.ToString(),
+                    TenSach = selectedRow.Cells["tenSachDataGridViewTextBoxColumn"].Value.ToString(),
+                    TenTacGia = selectedRow.Cells["tenTacGiaDataGridViewTextBoxColumn"].Value.ToString(),
+                    NamXuatBan = selectedRow.Cells["namXuatBanDataGridViewTextBoxColumn"].Value as DateTime?,
+                    SoLuong = selectedRow.Cells["soLuongDataGridViewTextBoxColumn"].Value as int?,
+                    TheLoai = selectedRow.Cells["theLoaiDataGridViewTextBoxColumn"].Value.ToString()
+                };
 
-            //    // Hiển thị dữ liệu lên các điều khiển chỉnh sửa
-            //    tbNameS.Text = selectedSach.TenSach;
-            //    tbTacGia.Text = selectedSach.TenTacGia;
-            //    dtNamSB.Value = selectedSach.NamXuatBan ?? DateTime.Now;
-            //    tbSoLuong.Text = selectedSach.SoLuong?.ToString() ?? "0";
-            //    cmTheLoai.SelectedItem = selectedSach.TheLoai;
-            //}
+                // Hiển thị dữ liệu lên các điều khiển chỉnh sửa
+                tbNameS.Text = selectedSach.TenSach;
+                tbTacGia.Text = selectedSach.TenTacGia;
+                dtNamSB.Value = selectedSach.NamXuatBan ?? DateTime.Now;
+                tbSoLuong.Text = selectedSach.SoLuong?.ToString() ?? "0";
+                cmTheLoai.SelectedItem = selectedSach.TheLoai;
+            }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

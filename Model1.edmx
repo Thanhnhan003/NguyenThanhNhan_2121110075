@@ -15,18 +15,17 @@
           <Property Name="HanSD" Type="date" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
           <Property Name="NgayCN" Type="date" />
+          <Property Name="HinhAnh" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="QLMuon">
           <Key>
             <PropertyRef Name="maPhieuMuon" />
           </Key>
           <Property Name="maPhieuMuon" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="maNVMuon" Type="nvarchar" MaxLength="255" />
           <Property Name="maDocGiaMuon" Type="nvarchar" MaxLength="255" />
-          <Property Name="maTaiLieuMuon" Type="nvarchar" MaxLength="255" />
+          <Property Name="maTaiLieuMuon" Type="nvarchar" MaxLength="50" />
           <Property Name="NgayMuon" Type="date" />
           <Property Name="HanTra" Type="date" />
-          <Property Name="maSach" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="QLSach">
           <Key>
@@ -44,10 +43,8 @@
             <PropertyRef Name="maPhieuTra" />
           </Key>
           <Property Name="maPhieuTra" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="maNVTra" Type="nvarchar" MaxLength="255" />
           <Property Name="maPhieuMuon" Type="nvarchar" MaxLength="255" />
           <Property Name="NgayTra" Type="date" />
-          <Property Name="maSach" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TaiKhoan">
           <Key>
@@ -73,43 +70,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__QLMuon__maNVMuon__69FBBC1F">
-          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
-          <End Role="QLMuon" Type="Self.QLMuon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TaiKhoan">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="QLMuon">
-              <PropertyRef Name="maNVMuon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLMuon__maSach__690797E6">
-          <End Role="QLSach" Type="Self.QLSach" Multiplicity="0..1" />
-          <End Role="QLMuon" Type="Self.QLMuon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QLSach">
-              <PropertyRef Name="MaSach" />
-            </Principal>
-            <Dependent Role="QLMuon">
-              <PropertyRef Name="maSach" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLTra__maNVTra__6EC0713C">
-          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
-          <End Role="QLTra" Type="Self.QLTra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TaiKhoan">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="QLTra">
-              <PropertyRef Name="maNVTra" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLTra__maPhieuMu__6CD828CA">
+        <Association Name="FK__QLTra__maPhieuMu__0880433F">
           <End Role="QLMuon" Type="Self.QLMuon" Multiplicity="0..1" />
           <End Role="QLTra" Type="Self.QLTra" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,18 +79,6 @@
             </Principal>
             <Dependent Role="QLTra">
               <PropertyRef Name="maPhieuMuon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLTra__maSach__6DCC4D03">
-          <End Role="QLSach" Type="Self.QLSach" Multiplicity="0..1" />
-          <End Role="QLTra" Type="Self.QLTra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QLSach">
-              <PropertyRef Name="MaSach" />
-            </Principal>
-            <Dependent Role="QLTra">
-              <PropertyRef Name="maSach" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -143,24 +92,8 @@
             <End Role="DocGia" EntitySet="DocGia" />
             <End Role="QLMuon" EntitySet="QLMuon" />
           </AssociationSet>
-          <AssociationSet Name="FK__QLMuon__maNVMuon__69FBBC1F" Association="Self.FK__QLMuon__maNVMuon__69FBBC1F">
-            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          <AssociationSet Name="FK__QLTra__maPhieuMu__0880433F" Association="Self.FK__QLTra__maPhieuMu__0880433F">
             <End Role="QLMuon" EntitySet="QLMuon" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLMuon__maSach__690797E6" Association="Self.FK__QLMuon__maSach__690797E6">
-            <End Role="QLSach" EntitySet="QLSach" />
-            <End Role="QLMuon" EntitySet="QLMuon" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLTra__maNVTra__6EC0713C" Association="Self.FK__QLTra__maNVTra__6EC0713C">
-            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
-            <End Role="QLTra" EntitySet="QLTra" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLTra__maPhieuMu__6CD828CA" Association="Self.FK__QLTra__maPhieuMu__6CD828CA">
-            <End Role="QLMuon" EntitySet="QLMuon" />
-            <End Role="QLTra" EntitySet="QLTra" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLTra__maSach__6DCC4D03" Association="Self.FK__QLTra__maSach__6DCC4D03">
-            <End Role="QLSach" EntitySet="QLSach" />
             <End Role="QLTra" EntitySet="QLTra" />
           </AssociationSet>
         </EntityContainer>
@@ -178,24 +111,8 @@
             <End Role="DocGia" EntitySet="DocGias" />
             <End Role="QLMuon" EntitySet="QLMuons" />
           </AssociationSet>
-          <AssociationSet Name="FK__QLMuon__maNVMuon__69FBBC1F" Association="saleModel.FK__QLMuon__maNVMuon__69FBBC1F">
-            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          <AssociationSet Name="FK__QLTra__maPhieuMu__0880433F" Association="saleModel.FK__QLTra__maPhieuMu__0880433F">
             <End Role="QLMuon" EntitySet="QLMuons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLMuon__maSach__690797E6" Association="saleModel.FK__QLMuon__maSach__690797E6">
-            <End Role="QLSach" EntitySet="QLSaches" />
-            <End Role="QLMuon" EntitySet="QLMuons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLTra__maPhieuMu__6CD828CA" Association="saleModel.FK__QLTra__maPhieuMu__6CD828CA">
-            <End Role="QLMuon" EntitySet="QLMuons" />
-            <End Role="QLTra" EntitySet="QLTras" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLTra__maSach__6DCC4D03" Association="saleModel.FK__QLTra__maSach__6DCC4D03">
-            <End Role="QLSach" EntitySet="QLSaches" />
-            <End Role="QLTra" EntitySet="QLTras" />
-          </AssociationSet>
-          <AssociationSet Name="FK__QLTra__maNVTra__6EC0713C" Association="saleModel.FK__QLTra__maNVTra__6EC0713C">
-            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
             <End Role="QLTra" EntitySet="QLTras" />
           </AssociationSet>
         </EntityContainer>
@@ -209,6 +126,7 @@
           <Property Name="HanSD" Type="DateTime" Precision="0" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgayCN" Type="DateTime" Precision="0" />
+          <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="QLMuons" Relationship="saleModel.FK__QLMuon__maDocGia__681373AD" FromRole="DocGia" ToRole="QLMuon" />
         </EntityType>
         <EntityType Name="QLMuon">
@@ -216,16 +134,12 @@
             <PropertyRef Name="maPhieuMuon" />
           </Key>
           <Property Name="maPhieuMuon" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="maNVMuon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="maDocGiaMuon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="maTaiLieuMuon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="maTaiLieuMuon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgayMuon" Type="DateTime" Precision="0" />
           <Property Name="HanTra" Type="DateTime" Precision="0" />
-          <Property Name="maSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DocGia" Relationship="saleModel.FK__QLMuon__maDocGia__681373AD" FromRole="QLMuon" ToRole="DocGia" />
-          <NavigationProperty Name="TaiKhoan" Relationship="saleModel.FK__QLMuon__maNVMuon__69FBBC1F" FromRole="QLMuon" ToRole="TaiKhoan" />
-          <NavigationProperty Name="QLSach" Relationship="saleModel.FK__QLMuon__maSach__690797E6" FromRole="QLMuon" ToRole="QLSach" />
-          <NavigationProperty Name="QLTras" Relationship="saleModel.FK__QLTra__maPhieuMu__6CD828CA" FromRole="QLMuon" ToRole="QLTra" />
+          <NavigationProperty Name="QLTras" Relationship="saleModel.FK__QLTra__maPhieuMu__0880433F" FromRole="QLMuon" ToRole="QLTra" />
         </EntityType>
         <EntityType Name="QLSach">
           <Key>
@@ -237,21 +151,15 @@
           <Property Name="NamXuatBan" Type="DateTime" Precision="0" />
           <Property Name="SoLuong" Type="Int32" />
           <Property Name="TheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="QLMuons" Relationship="saleModel.FK__QLMuon__maSach__690797E6" FromRole="QLSach" ToRole="QLMuon" />
-          <NavigationProperty Name="QLTras" Relationship="saleModel.FK__QLTra__maSach__6DCC4D03" FromRole="QLSach" ToRole="QLTra" />
         </EntityType>
         <EntityType Name="QLTra">
           <Key>
             <PropertyRef Name="maPhieuTra" />
           </Key>
           <Property Name="maPhieuTra" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="maNVTra" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="maPhieuMuon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="NgayTra" Type="DateTime" Precision="0" />
-          <Property Name="maSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="QLMuon" Relationship="saleModel.FK__QLTra__maPhieuMu__6CD828CA" FromRole="QLTra" ToRole="QLMuon" />
-          <NavigationProperty Name="QLSach" Relationship="saleModel.FK__QLTra__maSach__6DCC4D03" FromRole="QLTra" ToRole="QLSach" />
-          <NavigationProperty Name="TaiKhoan" Relationship="saleModel.FK__QLTra__maNVTra__6EC0713C" FromRole="QLTra" ToRole="TaiKhoan" />
+          <NavigationProperty Name="QLMuon" Relationship="saleModel.FK__QLTra__maPhieuMu__0880433F" FromRole="QLTra" ToRole="QLMuon" />
         </EntityType>
         <EntityType Name="TaiKhoan">
           <Key>
@@ -264,8 +172,6 @@
           <Property Name="MaNV" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="QLMuons" Relationship="saleModel.FK__QLMuon__maNVMuon__69FBBC1F" FromRole="TaiKhoan" ToRole="QLMuon" />
-          <NavigationProperty Name="QLTras" Relationship="saleModel.FK__QLTra__maNVTra__6EC0713C" FromRole="TaiKhoan" ToRole="QLTra" />
         </EntityType>
         <Association Name="FK__QLMuon__maDocGia__681373AD">
           <End Type="saleModel.DocGia" Role="DocGia" Multiplicity="0..1" />
@@ -279,31 +185,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__QLMuon__maNVMuon__69FBBC1F">
-          <End Type="saleModel.TaiKhoan" Role="TaiKhoan" Multiplicity="0..1" />
-          <End Type="saleModel.QLMuon" Role="QLMuon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TaiKhoan">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="QLMuon">
-              <PropertyRef Name="maNVMuon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLMuon__maSach__690797E6">
-          <End Type="saleModel.QLSach" Role="QLSach" Multiplicity="0..1" />
-          <End Type="saleModel.QLMuon" Role="QLMuon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QLSach">
-              <PropertyRef Name="MaSach" />
-            </Principal>
-            <Dependent Role="QLMuon">
-              <PropertyRef Name="maSach" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLTra__maPhieuMu__6CD828CA">
+        <Association Name="FK__QLTra__maPhieuMu__0880433F">
           <End Type="saleModel.QLMuon" Role="QLMuon" Multiplicity="0..1" />
           <End Type="saleModel.QLTra" Role="QLTra" Multiplicity="*" />
           <ReferentialConstraint>
@@ -312,30 +194,6 @@
             </Principal>
             <Dependent Role="QLTra">
               <PropertyRef Name="maPhieuMuon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLTra__maSach__6DCC4D03">
-          <End Type="saleModel.QLSach" Role="QLSach" Multiplicity="0..1" />
-          <End Type="saleModel.QLTra" Role="QLTra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QLSach">
-              <PropertyRef Name="MaSach" />
-            </Principal>
-            <Dependent Role="QLTra">
-              <PropertyRef Name="maSach" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__QLTra__maNVTra__6EC0713C">
-          <End Type="saleModel.TaiKhoan" Role="TaiKhoan" Multiplicity="0..1" />
-          <End Type="saleModel.QLTra" Role="QLTra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TaiKhoan">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="QLTra">
-              <PropertyRef Name="maNVTra" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -348,6 +206,7 @@
           <EntitySetMapping Name="DocGias">
             <EntityTypeMapping TypeName="saleModel.DocGia">
               <MappingFragment StoreEntitySet="DocGia">
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
                 <ScalarProperty Name="NgayCN" ColumnName="NgayCN" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
                 <ScalarProperty Name="HanSD" ColumnName="HanSD" />
@@ -360,12 +219,10 @@
           <EntitySetMapping Name="QLMuons">
             <EntityTypeMapping TypeName="saleModel.QLMuon">
               <MappingFragment StoreEntitySet="QLMuon">
-                <ScalarProperty Name="maSach" ColumnName="maSach" />
                 <ScalarProperty Name="HanTra" ColumnName="HanTra" />
                 <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
                 <ScalarProperty Name="maTaiLieuMuon" ColumnName="maTaiLieuMuon" />
                 <ScalarProperty Name="maDocGiaMuon" ColumnName="maDocGiaMuon" />
-                <ScalarProperty Name="maNVMuon" ColumnName="maNVMuon" />
                 <ScalarProperty Name="maPhieuMuon" ColumnName="maPhieuMuon" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -385,10 +242,8 @@
           <EntitySetMapping Name="QLTras">
             <EntityTypeMapping TypeName="saleModel.QLTra">
               <MappingFragment StoreEntitySet="QLTra">
-                <ScalarProperty Name="maSach" ColumnName="maSach" />
                 <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
                 <ScalarProperty Name="maPhieuMuon" ColumnName="maPhieuMuon" />
-                <ScalarProperty Name="maNVTra" ColumnName="maNVTra" />
                 <ScalarProperty Name="maPhieuTra" ColumnName="maPhieuTra" />
               </MappingFragment>
             </EntityTypeMapping>

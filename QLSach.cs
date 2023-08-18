@@ -14,23 +14,11 @@ namespace NguyenThanhNhan_2121110075
     
     public partial class QLSach
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public QLSach()
-        {
-            this.QLMuons = new HashSet<QLMuon>();
-            this.QLTras = new HashSet<QLTra>();
-        }
-    
         public string MaSach { get; set; }
         public string TenSach { get; set; }
         public string TenTacGia { get; set; }
         public Nullable<System.DateTime> NamXuatBan { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public string TheLoai { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QLMuon> QLMuons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QLTra> QLTras { get; set; }
     }
 }

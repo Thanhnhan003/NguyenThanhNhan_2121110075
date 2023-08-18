@@ -21,16 +21,12 @@ namespace NguyenThanhNhan_2121110075
         }
     
         public string maPhieuMuon { get; set; }
-        public string maNVMuon { get; set; }
         public string maDocGiaMuon { get; set; }
         public string maTaiLieuMuon { get; set; }
         public Nullable<System.DateTime> NgayMuon { get; set; }
         public Nullable<System.DateTime> HanTra { get; set; }
-        public string maSach { get; set; }
     
         public virtual DocGia DocGia { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
-        public virtual QLSach QLSach { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QLTra> QLTras { get; set; }
     }

@@ -280,6 +280,12 @@
     <Compile Include="GUI\QuanLyTaiKhoan.Designer.cs">
       <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\QuanLyTra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyTra.Designer.cs">
+      <DependentUpon>QuanLyTra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,6 +335,9 @@
     <EmbeddedResource Include="GUI\QuanLyTaiKhoan.resx">
       <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyTra.resx">
+      <DependentUpon>QuanLyTra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -350,6 +359,7 @@
     <None Include="Properties\DataSources\DocGia.datasource" />
     <None Include="Properties\DataSources\QLMuon.datasource" />
     <None Include="Properties\DataSources\QLSach.datasource" />
+    <None Include="Properties\DataSources\QLTra.datasource" />
     <None Include="Properties\DataSources\TaiKhoan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

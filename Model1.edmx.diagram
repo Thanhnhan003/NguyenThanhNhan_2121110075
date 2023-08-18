@@ -9,17 +9,13 @@
         <AssociationConnector Association="saleModel.FK__QLMuon__maSach__3D2915A8" />
         <AssociationConnector Association="saleModel.FK__QLTra__maPhieuMu__40058253" />
         <AssociationConnector Association="saleModel.FK__QLTra__maSach__40F9A68C" />
-        <EntityTypeShape EntityType="saleModel.DocGia" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="saleModel.DocGia" Width="1.5" PointX="0.75" PointY="1" />
         <EntityTypeShape EntityType="saleModel.QLMuon" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="saleModel.QLSach" Width="1.5" PointX="0.75" PointY="1.25" />
-        <EntityTypeShape EntityType="saleModel.QLTra" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="saleModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="saleModel.QLSach" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="saleModel.QLTra" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="saleModel.TaiKhoan" Width="1.5" PointX="2.75" PointY="4.75" />
         <AssociationConnector Association="saleModel.FK__QLMuon__maDocGia__681373AD" />
-        <AssociationConnector Association="saleModel.FK__QLMuon__maNVMuon__69FBBC1F" />
-        <AssociationConnector Association="saleModel.FK__QLMuon__maSach__690797E6" />
-        <AssociationConnector Association="saleModel.FK__QLTra__maPhieuMu__6CD828CA" />
-        <AssociationConnector Association="saleModel.FK__QLTra__maSach__6DCC4D03" />
-        <AssociationConnector Association="saleModel.FK__QLTra__maNVTra__6EC0713C" />
+        <AssociationConnector Association="saleModel.FK__QLTra__maPhieuMu__0880433F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

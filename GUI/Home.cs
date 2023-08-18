@@ -133,5 +133,10 @@ namespace NguyenThanhNhan_2121110075.GUI
         {
             OpenChildForm(new QuanLyTaiKhoan());
         }
+
+        private void btnTra_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuanLyTra());
+        }
     }
 }

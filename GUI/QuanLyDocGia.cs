@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Data.Entity.Infrastructure;
 using NguyenThanhNhan_2121110075.BAL;
 using System.Linq;
+using System.IO;
 
 namespace NguyenThanhNhan_2121110075.GUI
 {
@@ -21,15 +22,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             LoadDataToDataGridView();
-            dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.ReadOnly = true; // Tắt chế độ chỉnh sửa trong DataGridView
             dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
-
-            // Read existing readers data
             List<DocGia> existingReaders = qldgBAL.ReadQuanLyDocGia();
             currentCodeNumber = qldgBAL.GetNextAvailableCodeNumber(existingReaders).ToString();
 
-            // Rest of your constructor code...
+
         }
 
         private void DataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -46,7 +44,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             return $"{codePrefix}{codeNumber}";
         }
 
-        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -66,17 +64,35 @@ namespace NguyenThanhNhan_2121110075.GUI
                 dateNC.Value = selectedDocGia.NgayCap ?? DateTime.Now;
                 dateHSD.Value = selectedDocGia.HanSD ?? DateTime.Now;
                 cmTT.Text = selectedDocGia.TinhTrang;
-                dateNCN.Value = selectedDocGia.NgayCN ?? DateTime.Now; // Thêm dòng này
+                dateNCN.Value = selectedDocGia.NgayCN ?? DateTime.Now;
+
+                // Load the image into the PictureBox
+                if (selectedRow.Cells["hinhAnhDataGridViewImageColumn"].Value != null)
+                {
+                    byte[] imageData = (byte[])selectedRow.Cells["hinhAnhDataGridViewImageColumn"].Value;
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        pbIMG.Image = Image.FromStream(ms);
+                        // Tạo một bản sao của hình ảnh và gán nó vào PictureBox
+                        pbIMG.Image = new Bitmap(pbIMG.Image);
+                    }
+                }
+                else
+                {
+                    pbIMG.Image = null; // Clear the PictureBox if no image
+                }
             }
         }
 
+
         private void LoadDataToDataGridView()
         {
+          
             List<DocGia> lstDocGia = qldgBAL.ReadQuanLyDocGia();
             dataGridView1.DataSource = lstDocGia;
         }
 
-     
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -92,9 +108,17 @@ namespace NguyenThanhNhan_2121110075.GUI
                 return;
             }
 
-            List<DocGia> existingReaders = qldgBAL.ReadQuanLyDocGia();
+            // Tạo một bản sao của hình ảnh trong PictureBox
+            Image copyOfImage = pbIMG.Image;
+            byte[] imageData = ImageToByteArray(copyOfImage);
 
-            
+            if (imageData == null)
+            {
+                MessageBox.Show("Vui lòng chọn hình ảnh.", "Lỗi Nhập Dữ Liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            List<DocGia> existingReaders = qldgBAL.ReadQuanLyDocGia();
 
             DocGia qldg = new DocGia
             {
@@ -103,14 +127,15 @@ namespace NguyenThanhNhan_2121110075.GUI
                 NgayCap = ngayCap,
                 HanSD = hanSD,
                 TinhTrang = tinhTrang,
-                NgayCN = ngayCapNhat
-
+                NgayCN = ngayCapNhat,
+                HinhAnh = imageData // Sử dụng dữ liệu hình ảnh đã chuyển đổi
             };
 
             try
             {
                 qldgBAL.AddQuanLyDocGia(qldg);
                 MessageBox.Show("Thêm độc giả thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearTextBoxes();
                 LoadDataToDataGridView();
             }
             catch (DbUpdateException ex)
@@ -128,6 +153,26 @@ namespace NguyenThanhNhan_2121110075.GUI
             }
         }
 
+
+        private byte[] ImageToByteArray(Image image)
+        {
+            if (image != null)
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg); // You can change the format if needed
+                    return memoryStream.ToArray();
+                }
+            }
+            else
+            {
+                return null; // Return null or handle this case according to your needs
+            }
+        }
+
+        private QLMuonBAL qlmbal = new QLMuonBAL();
+
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -139,11 +184,20 @@ namespace NguyenThanhNhan_2121110075.GUI
 
                     try
                     {
+                        // Xóa các phiếu mượn của độc giả trước
+                        List<QLMuon> muonsToDelete = qlmbal.ReadQuanLyMuon().Where(m => m.maDocGiaMuon == maDocGia).ToList();
+                        foreach (QLMuon muon in muonsToDelete)
+                        {
+                            qlmbal.DeleteQuanLyMuon(muon);
+                        }
+
+                        // Tiếp theo, xóa độc giả trong bảng DocGia
                         DocGia qldgToDelete = qldgBAL.GetQuanLyDocGiaByMaDocGia(maDocGia);
                         if (qldgToDelete != null)
                         {
                             qldgBAL.DeleteQuanLyDocGia(qldgToDelete);
-                            MessageBox.Show("Xóa độc giả thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Xóa độc giả và các phiếu mượn liên quan thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTextBoxes();
                             LoadDataToDataGridView();
                         }
                     }
@@ -176,7 +230,8 @@ namespace NguyenThanhNhan_2121110075.GUI
                         NgayCap = dateNC.Value,
                         HanSD = dateHSD.Value,
                         TinhTrang = cmTT.Text.Trim(),
-                        NgayCN = dateNCN.Value // Thêm ngày cập nhật
+                        NgayCN = dateNCN.Value, // Thêm ngày cập nhật
+                        HinhAnh = ImageToByteArray(pbIMG.Image) // Convert image to byte array
                     };
 
                     try
@@ -193,7 +248,6 @@ namespace NguyenThanhNhan_2121110075.GUI
                     {
                         // Xóa dữ liệu trong các điều khiển chỉnh sửa và bỏ chọn dòng
                         ClearTextBoxes();
-                        selectedDocGia = null;
                     }
                 }
                 else
@@ -203,25 +257,39 @@ namespace NguyenThanhNhan_2121110075.GUI
             }
         }
 
-
-
-        private bool TenDocGiaExists(string tenDocGia, string maDocGiaToExclude)
-        {
-            List<DocGia> existingReaders = qldgBAL.ReadQuanLyDocGia();
-            return existingReaders.Any(reader => reader.TenDocGia.Equals(tenDocGia, StringComparison.OrdinalIgnoreCase) && reader.MaDocGia != maDocGiaToExclude);
-        }
-
         private void ClearTextBoxes()
         {
             tbNameDG.Text = "";
             dateNC.Value = DateTime.Now;
             dateHSD.Value = DateTime.Now;
-            cmTT.Text = "";
+            cmTT.SelectedItem = null;
             dateNCN.Value = DateTime.Now;
+            pbIMG.Image = null;
         }
 
-        
+        private void btnAddIMG_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string imagePath = openFileDialog.FileName;
 
-        // Additional event handlers and methods can be added here
+                    pbIMG.Image = Image.FromFile(imagePath);
+
+                    pbIMG.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+        }
+
+
+        private void pbIMG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

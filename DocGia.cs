@@ -26,6 +26,7 @@ namespace NguyenThanhNhan_2121110075
         public Nullable<System.DateTime> HanSD { get; set; }
         public string TinhTrang { get; set; }
         public Nullable<System.DateTime> NgayCN { get; set; }
+        public byte[] HinhAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QLMuon> QLMuons { get; set; }
