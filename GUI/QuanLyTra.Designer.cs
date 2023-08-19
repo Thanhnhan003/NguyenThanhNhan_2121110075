@@ -46,6 +46,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnReport = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLTraBindingSource)).BeginInit();
@@ -59,6 +60,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox1.Controls.Add(this.dateNgayTra);
             this.groupBox1.Controls.Add(this.btnEdit);
             this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.btnReport);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -223,6 +225,18 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm mã";
             // 
+            // btnReport
+            // 
+            this.btnReport.AutoSize = true;
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(10, 415);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(179, 43);
+            this.btnReport.TabIndex = 2;
+            this.btnReport.Text = "Thống kê";
+            this.btnReport.UseVisualStyleBackColor = false;
+            // 
             // QuanLyTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,5 +276,6 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnReport;
     }
 }

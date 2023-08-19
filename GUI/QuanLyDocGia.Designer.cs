@@ -32,6 +32,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenDocGiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +65,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.docGiaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.docGiaBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.sqlDataAdapter1 = new Microsoft.Data.SqlClient.SqlDataAdapter();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docGiaBindingSource6)).BeginInit();
@@ -96,6 +97,17 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(553, 31);
             this.tbSearch.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label1.Location = new System.Drawing.Point(16, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tìm mã độc giả";
             // 
             // dataGridView1
             // 
@@ -231,6 +243,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dateNC.Name = "dateNC";
             this.dateNC.Size = new System.Drawing.Size(257, 31);
             this.dateNC.TabIndex = 6;
+            this.dateNC.ValueChanged += new System.EventHandler(this.dateNC_ValueChanged);
             // 
             // dateNCN
             // 
@@ -390,16 +403,9 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             this.docGiaBindingSource5.DataSource = typeof(NguyenThanhNhan_2121110075.DocGia);
             // 
-            // label1
+            // sqlDataAdapter1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(16, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tìm mã độc giả";
+            this.sqlDataAdapter1.RowUpdated += new Microsoft.Data.SqlClient.SqlRowUpdatedEventHandler(this.sqlDataAdapter1_RowUpdated);
             // 
             // QuanLyDocGia
             // 
@@ -468,5 +474,6 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayCNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn hinhAnhDataGridViewImageColumn;
         private System.Windows.Forms.Label label1;
+        private Microsoft.Data.SqlClient.SqlDataAdapter sqlDataAdapter1;
     }
 }

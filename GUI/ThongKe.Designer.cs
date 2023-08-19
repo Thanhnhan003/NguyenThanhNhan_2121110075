@@ -49,7 +49,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.Controls.Add(this.reportViewer1);
             this.Name = "ThongKe";
             this.Text = "ThongKe";
-            this.Load += new System.EventHandler(this.ThongKe_Load);
             this.ResumeLayout(false);
 
         }

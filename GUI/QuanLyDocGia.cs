@@ -26,6 +26,11 @@ namespace NguyenThanhNhan_2121110075.GUI
             dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
             List<DocGia> existingReaders = qldgBAL.ReadQuanLyDocGia();
             currentCodeNumber = qldgBAL.GetNextAvailableCodeNumber(existingReaders).ToString();
+            //dateNC.Format = DateTimePickerFormat.Custom;
+            //dateNC.CustomFormat = " ";
+
+            //// Đăng ký sự kiện khi giá trị thay đổi
+            //dateNC.ValueChanged += dateNC_ValueChanged;
 
 
         }
@@ -289,7 +294,15 @@ namespace NguyenThanhNhan_2121110075.GUI
 
         }
 
+        private void sqlDataAdapter1_RowUpdated(object sender, Microsoft.Data.SqlClient.SqlRowUpdatedEventArgs e)
+        {
 
+        }
 
+        private void dateNC_ValueChanged(object sender, EventArgs e)
+        {
+            //dateNC.Format = DateTimePickerFormat.Long;
+            //dateNC.CustomFormat = null;
+        }
     }
 }

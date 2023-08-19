@@ -20,7 +20,6 @@ namespace NguyenThanhNhan_2121110075.GUI
         private void ThongKe_Load(object sender, EventArgs e)
         {
 
-            this.reportViewer1.RefreshReport();
         }
     }
 }

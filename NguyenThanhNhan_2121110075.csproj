@@ -366,6 +366,7 @@
     <EmbeddedResource Include="GUI\QuanLyTra.resx">
       <DependentUpon>QuanLyTra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Report1.rdlc" />
     <EmbeddedResource Include="GUI\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
@@ -388,9 +389,13 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DocGia.datasource" />
+    <None Include="Properties\DataSources\Login.AccountInfoHandler.datasource" />
+    <None Include="Properties\DataSources\Login.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\QLMuon.datasource" />
     <None Include="Properties\DataSources\QLSach.datasource" />
     <None Include="Properties\DataSources\QLTra.datasource" />
+    <None Include="Properties\DataSources\saleEntities.datasource" />
     <None Include="Properties\DataSources\TaiKhoan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

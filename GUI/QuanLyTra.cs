@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NguyenThanhNhan_2121110075.BAL;
+
 using System.Windows.Forms;
 
 namespace NguyenThanhNhan_2121110075.GUI
@@ -173,5 +174,12 @@ namespace NguyenThanhNhan_2121110075.GUI
             cbbMaPhieuMuon.SelectedItem = null;
 
         }
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+
+       
     }
 }
