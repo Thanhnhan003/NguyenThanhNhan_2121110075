@@ -26,11 +26,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
             List<DocGia> existingReaders = qldgBAL.ReadQuanLyDocGia();
             currentCodeNumber = qldgBAL.GetNextAvailableCodeNumber(existingReaders).ToString();
-            //dateNC.Format = DateTimePickerFormat.Custom;
-            //dateNC.CustomFormat = " ";
-
-            //// Đăng ký sự kiện khi giá trị thay đổi
-            //dateNC.ValueChanged += dateNC_ValueChanged;
+            
 
 
         }
@@ -176,7 +172,7 @@ namespace NguyenThanhNhan_2121110075.GUI
         }
 
         private QLMuonBAL qlmbal = new QLMuonBAL();
-
+        private QLTraBAL qltbal = new QLTraBAL();
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -191,6 +187,8 @@ namespace NguyenThanhNhan_2121110075.GUI
                     {
                         // Xóa các phiếu mượn của độc giả trước
                         List<QLMuon> muonsToDelete = qlmbal.ReadQuanLyMuon().Where(m => m.maDocGiaMuon == maDocGia).ToList();
+
+
                         foreach (QLMuon muon in muonsToDelete)
                         {
                             qlmbal.DeleteQuanLyMuon(muon);
@@ -201,14 +199,14 @@ namespace NguyenThanhNhan_2121110075.GUI
                         if (qldgToDelete != null)
                         {
                             qldgBAL.DeleteQuanLyDocGia(qldgToDelete);
-                            MessageBox.Show("Xóa độc giả và các phiếu mượn liên quan thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Xóa độc giả và các liên quan thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearTextBoxes();
                             LoadDataToDataGridView();
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Mã đã dính ràng buột tồn tại bạn không thể xóa nếu ko xóa! ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -301,8 +299,17 @@ namespace NguyenThanhNhan_2121110075.GUI
 
         private void dateNC_ValueChanged(object sender, EventArgs e)
         {
-            //dateNC.Format = DateTimePickerFormat.Long;
-            //dateNC.CustomFormat = null;
+        
+        }
+
+        private void dateHSD_ValueChanged(object sender, EventArgs e)
+        {
+  
+        }
+
+        private void dateNCN_ValueChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 }

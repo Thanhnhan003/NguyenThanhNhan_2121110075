@@ -43,7 +43,10 @@ namespace NguyenThanhNhan_2121110075.DAL
         {
             return _context.QLTras.FirstOrDefault(m => m.maPhieuTra == maPhieuTra);
         }
-
+        public QLTra GetQuanLyTraByMaPhieuMuon(string maPhieuMuon)
+        {
+            return _context.QLTras.FirstOrDefault(tra => tra.maPhieuMuon == maPhieuMuon);
+        }
         public bool IsMaPhieuMuonExists(string maPhieuMuon)
         {
             return _context.QLTras.Any(tra => tra.maPhieuMuon == maPhieuMuon);

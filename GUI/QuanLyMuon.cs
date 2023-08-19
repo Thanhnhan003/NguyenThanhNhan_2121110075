@@ -39,7 +39,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             dateHanTra.Value = DateTime.Now;
         }
 
-        
+
 
         private void LoadDocGiaComboBox()
         {
@@ -63,6 +63,15 @@ namespace NguyenThanhNhan_2121110075.GUI
             if (string.IsNullOrWhiteSpace(maDocGia) || string.IsNullOrWhiteSpace(maSach))
             {
                 MessageBox.Show("Vui lòng chọn độc giả và sách trước khi thêm phiếu mượn.", "Lỗi Nhập Dữ Liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if the selected maTaiLieuMuon already exists in the loans
+            List<QLMuon> lstqlmuon = qlmbal.ReadQuanLyMuon();
+            bool isDuplicate = lstqlmuon.Any(m => m.maTaiLieuMuon == maSach);
+            if (isDuplicate)
+            {
+                MessageBox.Show("Mã tài liệu đã tồn tại trong danh sách mượn.", "Lỗi Nhập Dữ Liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -93,6 +102,7 @@ namespace NguyenThanhNhan_2121110075.GUI
 
 
 
+
         private void LoadDataToDataGridView()
         {
 
@@ -101,7 +111,7 @@ namespace NguyenThanhNhan_2121110075.GUI
         }
 
 
-    
+
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -144,9 +154,9 @@ namespace NguyenThanhNhan_2121110075.GUI
                             ClearTextBoxes();
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Đã xảy ra lỗi khi xóa phiếu mượn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Bạn đã dính ràng buột bên quản lý trả không thể xóa khi bên đó tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -168,6 +178,17 @@ namespace NguyenThanhNhan_2121110075.GUI
                 if (!string.IsNullOrWhiteSpace(newMaDocGia) && !string.IsNullOrWhiteSpace(newMaSach))
                 {
                     QLMuon selectedMuon = dataGridView1.SelectedRows[0].DataBoundItem as QLMuon;
+
+                    // Check if the selected maTaiLieuMuon already exists in the loans (excluding the selected loan)
+                    List<QLMuon> lstqlmuon = qlmbal.ReadQuanLyMuon();
+                    string selectedMaPhieuMuon = selectedMuon.maPhieuMuon;
+                    bool isDuplicate = lstqlmuon.Any(m => m.maTaiLieuMuon == newMaSach && m.maPhieuMuon != selectedMaPhieuMuon);
+                    if (isDuplicate)
+                    {
+                        MessageBox.Show("Mã tài liệu đã tồn tại trong danh sách mượn.", "Lỗi Nhập Dữ Liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     selectedMuon.maDocGiaMuon = newMaDocGia;
                     selectedMuon.maTaiLieuMuon = newMaSach;
                     selectedMuon.NgayMuon = newNgayMuon;
@@ -190,6 +211,13 @@ namespace NguyenThanhNhan_2121110075.GUI
                     MessageBox.Show("Vui lòng chọn độc giả và sách trước khi cập nhật phiếu mượn.", "Lỗi Nhập Dữ Liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+
+        private void btnReport_Click(object sender, EventArgs e) 
+        { 
+            ThongKe thongKe = new ThongKe(); 
+            thongKe.ShowDialog(); 
         }
     }
 }

@@ -53,6 +53,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.qLMuonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnReport = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLMuonBindingSource1)).BeginInit();
@@ -152,6 +153,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.btnReport);
             this.groupBox1.Controls.Add(this.cbbDocGiaMuon);
             this.groupBox1.Controls.Add(this.cbbMaSachMuon);
             this.groupBox1.Controls.Add(this.dateHanTra);
@@ -296,6 +298,19 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             this.qLMuonBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.QLMuon);
             // 
+            // btnReport
+            // 
+            this.btnReport.AutoSize = true;
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(10, 436);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(179, 43);
+            this.btnReport.TabIndex = 8;
+            this.btnReport.Text = "Thống kê";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // QuanLyMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -344,5 +359,6 @@ namespace NguyenThanhNhan_2121110075.GUI
         private System.Windows.Forms.ComboBox cbbMaSachMuon;
         private System.Windows.Forms.DateTimePicker dateHanTra;
         private System.Windows.Forms.ComboBox cbbDocGiaMuon;
+        private System.Windows.Forms.Button btnReport;
     }
 }

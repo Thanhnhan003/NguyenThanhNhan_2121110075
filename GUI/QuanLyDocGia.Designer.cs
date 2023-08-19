@@ -254,6 +254,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dateNCN.Name = "dateNCN";
             this.dateNCN.Size = new System.Drawing.Size(257, 31);
             this.dateNCN.TabIndex = 4;
+            this.dateNCN.ValueChanged += new System.EventHandler(this.dateNCN_ValueChanged);
             // 
             // dateHSD
             // 
@@ -264,6 +265,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.dateHSD.Name = "dateHSD";
             this.dateHSD.Size = new System.Drawing.Size(257, 31);
             this.dateHSD.TabIndex = 4;
+            this.dateHSD.ValueChanged += new System.EventHandler(this.dateHSD_ValueChanged);
             // 
             // cmTT
             // 

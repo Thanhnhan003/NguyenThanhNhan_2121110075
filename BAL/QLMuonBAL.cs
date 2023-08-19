@@ -61,17 +61,23 @@ namespace NguyenThanhNhan_2121110075.BAL
         {
             List<int> existingCodeNumbers = _qlMuonDAL.ReadQuanLyMuonCodeNumbers();
 
-            int maxCodeNumber = existingCodeNumbers.Max();
-
-            int smallestDeletedCodeNumber = GetSmallestDeletedCodeNumber(existingCodeNumbers);
-
-            if (smallestDeletedCodeNumber > 0 && smallestDeletedCodeNumber < maxCodeNumber)
+            if (existingCodeNumbers.Any()) // Check if the list is not empty
             {
-                return smallestDeletedCodeNumber;
+                int maxCodeNumber = existingCodeNumbers.Max();
+
+                int smallestDeletedCodeNumber = GetSmallestDeletedCodeNumber(existingCodeNumbers);
+
+                if (smallestDeletedCodeNumber > 0 && smallestDeletedCodeNumber < maxCodeNumber)
+                {
+                    return smallestDeletedCodeNumber;
+                }
+
+                return maxCodeNumber + 1;
             }
 
-            return maxCodeNumber + 1;
+            return 1; // Default value when the list is empty
         }
+
 
         private int GetSmallestDeletedCodeNumber(List<int> existingCodeNumbers)
         {

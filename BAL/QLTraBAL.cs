@@ -42,7 +42,10 @@ namespace NguyenThanhNhan_2121110075.BAL
         {
             return _qlTraDAL.GetQuanLyTraByMaPhieuTra(maPhieuTra);
         }
-
+        public QLTra GetQuanLyTraByMaPhieuMuon(string maPhieuMuon)
+        {
+            return _qlTraDAL.GetQuanLyTraByMaPhieuMuon(maPhieuMuon);
+        }
         public bool IsMaPhieuMuonExists(string maPhieuMuon)
         {
             return _qlTraDAL.IsMaPhieuMuonExists(maPhieuMuon);
