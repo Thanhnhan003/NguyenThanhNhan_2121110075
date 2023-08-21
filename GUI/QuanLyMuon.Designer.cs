@@ -41,6 +41,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.hanTraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qLMuonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.cbbDocGiaMuon = new System.Windows.Forms.ComboBox();
             this.cbbMaSachMuon = new System.Windows.Forms.ComboBox();
             this.dateHanTra = new System.Windows.Forms.DateTimePicker();
@@ -53,7 +54,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.qLMuonBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnReport = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLMuonBindingSource1)).BeginInit();
@@ -172,6 +172,19 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // btnReport
+            // 
+            this.btnReport.AutoSize = true;
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(10, 436);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(179, 43);
+            this.btnReport.TabIndex = 8;
+            this.btnReport.Text = "Thống kê";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // cbbDocGiaMuon
             // 
@@ -298,19 +311,6 @@ namespace NguyenThanhNhan_2121110075.GUI
             // 
             this.qLMuonBindingSource.DataSource = typeof(NguyenThanhNhan_2121110075.QLMuon);
             // 
-            // btnReport
-            // 
-            this.btnReport.AutoSize = true;
-            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(10, 436);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(179, 43);
-            this.btnReport.TabIndex = 8;
-            this.btnReport.Text = "Thống kê";
-            this.btnReport.UseVisualStyleBackColor = false;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
             // QuanLyMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -322,7 +322,7 @@ namespace NguyenThanhNhan_2121110075.GUI
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "QuanLyMuon";
-            this.Text = "QuanLyMuon";
+            this.Text = "d";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

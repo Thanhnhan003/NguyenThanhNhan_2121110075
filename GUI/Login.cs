@@ -50,10 +50,9 @@ namespace NguyenThanhNhan_2121110075
                     // Gửi thông tin tài khoản về form Home
                     OnAccountInfoReceived?.Invoke(account.TenNguoiDung, account.ChucVu);
                 }
-
+                MessageBox.Show("Đăng nhập thành công.");
                 // Tạo instance của form Home
                 Home home = new Home(account);
-
                 // Hiển thị form Home và đóng form Login
                 home.Show();
                 this.Hide();

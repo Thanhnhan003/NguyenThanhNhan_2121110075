@@ -33,7 +33,6 @@ namespace NguyenThanhNhan_2121110075
             this.txtPASS = new System.Windows.Forms.TextBox();
             this.txtUSER = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbPassword = new System.Windows.Forms.Label();
@@ -88,17 +87,6 @@ namespace NguyenThanhNhan_2121110075
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label2.Location = new System.Drawing.Point(562, 294);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 28);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Quên mật khẩu";
             // 
             // button1
             // 
@@ -167,7 +155,6 @@ namespace NguyenThanhNhan_2121110075
             this.ClientSize = new System.Drawing.Size(1023, 484);
             this.ControlBox = false;
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txtPASS);
@@ -197,7 +184,6 @@ namespace NguyenThanhNhan_2121110075
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnDangNhap;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
     }
 }

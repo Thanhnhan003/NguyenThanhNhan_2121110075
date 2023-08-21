@@ -7,7 +7,6 @@ using System.Globalization;
 using System.ComponentModel;
 using NguyenThanhNhan_2121110075.BAL;
 using System.Linq;
-
 using System.Data.SqlClient;
 using ClosedXML.Excel;
 
@@ -339,9 +338,9 @@ namespace NguyenThanhNhan_2121110075.GUI
         }
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            // Hiển thị hộp thoại mở tệp để người dùng chọn tệp Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
@@ -350,9 +349,8 @@ namespace NguyenThanhNhan_2121110075.GUI
                 {
                     using (XLWorkbook workbook = new XLWorkbook(filePath))
                     {
-                        IXLWorksheet worksheet = workbook.Worksheet(1); // Chọn worksheet đầu tiên
+                        IXLWorksheet worksheet = workbook.Worksheet(1);
 
-                        // Đọc tiêu đề cột từ hàng đầu tiên (hàng tiêu đề)
                         var headerRow = worksheet.Row(1);
                         string maSachColumnHeader = headerRow.Cell(1).Value.ToString();
                         string tenSachColumnHeader = headerRow.Cell(2).Value.ToString();
@@ -361,9 +359,9 @@ namespace NguyenThanhNhan_2121110075.GUI
                         string soLuongColumnHeader = headerRow.Cell(5).Value.ToString();
                         string theLoaiColumnHeader = headerRow.Cell(6).Value.ToString();
 
-                        List<QLSach> existingBooks = qlsBAL.ReadQuanLySach(); // Đọc danh sách sách hiện tại
+                        List<QLSach> existingBooks = qlsBAL.ReadQuanLySach();
+                        bool dataChanged = false;
 
-                        // Lặp qua các dòng từ dòng thứ 2 (bỏ qua tiêu đề)
                         for (int row = 2; row <= worksheet.LastRowUsed().RowNumber(); row++)
                         {
                             // Đọc giá trị từ tệp Excel
@@ -374,7 +372,6 @@ namespace NguyenThanhNhan_2121110075.GUI
                             int? soLuong = worksheet.Cell(row, 5).GetValue<int?>();
                             string theLoai = worksheet.Cell(row, 6).Value.ToString();
 
-                            // Kiểm tra xem mã sách đã tồn tại trong danh sách sách hiện tại chưa
                             if (!existingBooks.Any(book => book.MaSach == maSach))
                             {
                                 // Thêm dữ liệu vào cơ sở dữ liệu
@@ -388,14 +385,20 @@ namespace NguyenThanhNhan_2121110075.GUI
                                     TheLoai = theLoai
                                 };
 
-                                qlsBAL.AddQuanLySach(qls); // Thêm dữ liệu vào cơ sở dữ liệu
-
-                                // Cập nhật DataGridView
+                                qlsBAL.AddQuanLySach(qls);
+                                dataChanged = true;
                                 LoadDataToDataGridView();
                             }
                         }
 
-                        MessageBox.Show("Import dữ liệu từ Excel thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (dataChanged)
+                        {
+                            MessageBox.Show("Import dữ liệu từ Excel thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dữ liệu không có thay đổi từ tệp Excel.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
                 catch (Exception)
@@ -404,6 +407,7 @@ namespace NguyenThanhNhan_2121110075.GUI
                 }
             }
         }
+
 
 
 
